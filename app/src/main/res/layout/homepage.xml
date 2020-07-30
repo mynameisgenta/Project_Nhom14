@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".View_Models.HomePage.TrangChu">
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btnLanguage"-->
+    <!--        android:layout_width="40dp"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_gravity="right"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_marginRight="20dp"-->
+    <!--        android:background="@drawable/language">-->
+
+    <!--    </Button>-->
+
+    <LinearLayout style="@style/linear_homepage">
+
+        <ImageView style="@style/img_logo"></ImageView>
+
+        <Button
+            android:id="@+id/btnQuanLyCty"
+            style="@style/btn_quanlycty" />
+
+        <Button
+            android:id="@+id/btnQuanLyXe"
+            style="@style/btn_quanlyxe" />
+
+        <Button
+            android:id="@+id/btnDonDatHang"
+            style="@style/btn_dondathang" />
+
+        <Button
+            android:id="@+id/btnUser"
+            style="@style/btn_user" />
+
+        <Button
+            android:id="@+id/btnExit"
+            style="@style/btn_homepage_exit" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/logo_yellow"
+        android:duration="1000"></item>
+    <item
+        android:drawable="@drawable/logo_red"
+        android:duration="1000"></item>
+    <item
+        android:drawable="@drawable/logo_green"
+        android:duration="1000"></item>
+    <item
+        android:drawable="@drawable/logo_blue"
+        android:duration="1000"></item>
+    <item
+        android:drawable="@drawable/logo_purple"
+        android:duration="1000"></item>
+</animation-list>

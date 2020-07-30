@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    android:orientation="vertical"
+    tools:context="com.example.qunltxe.View_Models.HomePage.DangNhap">
+
+    <ImageView style="@style/img_login"></ImageView>
+
+    <EditText
+        android:id="@+id/login_username"
+        style="@style/edit_taikhoan" />
+
+    <EditText
+        android:id="@+id/login_password"
+        style="@style/edit_matkhau" />
+
+    <CheckBox
+        android:id="@+id/cb_rememberme"
+        style="@style/cb_rememberme" />
+
+    <LinearLayout style="@style/linear_btn_login">
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/btn_login" />
+
+        <TextView
+            android:id="@+id/go_register"
+            style="@style/go_register" />
+
+        <ImageButton
+            android:id="@+id/ib_finger"
+            style="@style/ib_finger" />
+
+    </LinearLayout>
+
+</LinearLayout>

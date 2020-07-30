@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".View_Models.QuanLyXe.ThemXe">
+
+
+    <TextView style="@style/title_add" />
+
+
+    <LinearLayout style="@style/linear_info">
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtMaxe" />
+
+            <EditText
+                android:id="@+id/txtMaXe"
+                style="@style/edit_maxe" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtMaloai" />
+
+            <EditText
+                android:id="@+id/txtMaLoai"
+                style="@style/edit_maloai" />
+        </LinearLayout>
+
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtTenxe"></TextView>
+
+            <EditText
+                android:id="@+id/txtTenXe"
+                style="@style/edit_tenxe" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtDungtich" />
+
+            <EditText
+                android:id="@+id/txtDungTich"
+                style="@style/edit_dungtich" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtSoluong" />
+
+            <EditText
+                android:id="@+id/txtSoLuong"
+                style="@style/edit_soluong" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtDongia" />
+
+            <EditText
+                android:id="@+id/txtDonGia"
+                style="@style/edit_dongia" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/linear_button">
+
+        <Button
+            android:id="@+id/btnThem"
+            style="@style/btn_them"></Button>
+
+        <Button
+            android:id="@+id/btnClear"
+            style="@style/btn_clear"></Button>
+
+    </LinearLayout>
+
+</LinearLayout>

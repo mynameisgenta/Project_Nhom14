@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".View_Models.QuanLyXe.ThemXe">
+
+
+    <TextView style="@style/title_edit_user" />
+
+
+    <LinearLayout style="@style/linear_info_user">
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtUsername" />
+
+            <EditText
+                android:id="@+id/txtUsername"
+                style="@style/edit_username_disable" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtFullname" />
+
+            <EditText
+                android:id="@+id/txtFullname"
+                style="@style/edit_fullname" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtPassword"></TextView>
+
+            <EditText
+                android:id="@+id/txtPassword"
+                style="@style/edit_password" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/linear_button_user">
+
+        <Button
+            android:id="@+id/btnUpdate"
+            style="@style/btn_update"></Button>
+
+        <Button
+            android:id="@+id/btnClear"
+            style="@style/btn_clear"></Button>
+
+    </LinearLayout>
+
+</LinearLayout>

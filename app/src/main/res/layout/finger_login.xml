@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@drawable/bg_finger_login"
+    tools:context="com.example.qunltxe.View_Models.HomePage.VanTay">
+
+    <LinearLayout style="@style/linear_finger">
+
+        <ImageButton
+            android:id="@+id/finger_login"
+            style="@style/img_finger" />
+
+        <TextView
+            android:id="@+id/finger_text_guide"
+            style="@style/text_finger_guide" />
+
+        <TextView
+            android:id="@+id/errorText"
+            style="@style/finger_error_text" />
+
+    </LinearLayout>
+</LinearLayout>

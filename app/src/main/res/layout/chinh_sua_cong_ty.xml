@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".View_Models.QuanLyCongTy.ThemCongTy">
+
+    <TextView style="@style/title_edit_cty" />
+
+    <LinearLayout style="@style/linear_info_cty">
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtMaloai" />
+
+            <EditText
+                android:id="@+id/ed_maloai"
+                style="@style/edit_maloai_disable" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtTenloai"></TextView>
+
+            <EditText
+                android:id="@+id/ed_tenloai"
+                style="@style/edit_tenloai" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtXuatxu" />
+
+            <EditText
+                android:id="@+id/ed_xuatxu"
+                style="@style/edit_xuatxu" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout style="@style/linear_btn">
+
+        <Button
+            android:id="@+id/btn_sua"
+            style="@style/btn_sua" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            style="@style/btn_clear" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    android:orientation="vertical"
+    tools:context="com.example.qunltxe.View_Models.HomePage.DangNhap">
+
+    <ImageView style="@style/img_register"></ImageView>
+
+    <EditText
+        android:id="@+id/reg_username"
+        style="@style/fill_taikhoan" />
+
+    <EditText
+        android:id="@+id/reg_fullname"
+        style="@style/fill_hoten" />
+
+    <EditText
+        android:id="@+id/reg_password"
+        style="@style/fill_matkhau" />
+
+    <LinearLayout style="@style/linear_btn_reggister">
+
+        <Button
+            android:id="@+id/btn_register"
+            style="@style/btn_register" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/back_login"
+        style="@style/back_login" />
+
+</LinearLayout>

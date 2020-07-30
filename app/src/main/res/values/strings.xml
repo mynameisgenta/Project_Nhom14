@@ -1,0 +1,76 @@
+<resources>
+    <string name="finger_text">Chạm vân tay để mở khóa</string>
+    <string name="loading_text">Loading...</string>
+
+    <string name="app_name">Quản lý đặt xe</string>
+    <string name="title_add">Thêm xe</string>
+    <string name="title_infomoto">Thêm xe</string>
+    <string name="title_edit_xe">Cập nhật thông tin xe</string>
+    <string name="title_edit_user">Cập nhật Tài khoản</string>
+
+    <string name="mn_update">Cập nhật</string>
+    <string name="mn_delete">Xóa</string>
+    <string name="mn_add">Thêm</string>
+    <string name="mn_save">Lưu</string>
+    <string name="mn_logout">Thoát</string>
+
+    <string name="tv_maxe">Mã xe</string>
+    <string name="tv_tenxe">Tên xe</string>
+    <string name="tv_dungtich">Dung tích</string>
+    <string name="tv_soluong">Số lượng</string>
+    <string name="tv_maloai">Mã Loại</string>
+    <string name="tv_dongia">Giá</string>
+    <string name="tv_username">Tài khoản</string>
+    <string name="tv_fullname">Họ tên</string>
+    <string name="tv_password">Mật khẩu</string>
+
+
+    <string name="hint_maxe">Nhập mã xe</string>
+    <string name="hint_tenxe">Nhập tên xe</string>
+    <string name="hint_dungtich">Nhập dung tích</string>
+    <string name="hint_soluong">Nhập số lượng</string>
+    <string name="hint_maloai">Nhập mã Loại</string>
+    <string name="hint_dongia">Nhập giá xe</string>
+
+    <string name="btn_add">Thêm</string>
+    <string name="btn_edit">Sửa</string>
+    <string name="btn_update">Cập nhật</string>
+    <string name="btn_delete">Xóa</string>
+    <string name="btn_clear">Clear</string>
+    <string name="btn_quanlycty">Quản lý công ty xe</string>
+    <string name="btn_quanlyxe">Quản lý xe</string>
+    <string name="btn_dondathang">Đơn đặt hàng</string>
+    <string name="btn_user">Quản lý tài khoản</string>
+    <string name="btn_exit">Thoát</string>
+
+    <string name="remember_login">Ghi nhớ đăng nhập</string>
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="go_register">Bạn chưa có tài khoản? Tạo ngay</string>
+    <string name="back_login">Đã có tài khoản? Về đăng nhập</string>
+
+    <string name="hint_taikhoan">Tài khoản</string>
+    <string name="hint_matkhau">Mật khẩu</string>
+    <string name="hint_nhaptaikhoan">Nhập tài khoản</string>
+    <string name="hint_nhapmatkhau">Nhập mật khẩu</string>
+    <string name="hint_nhaphoten">Nhập họ tên</string>
+    <string name="list_taikhoan">Danh sách tài khoản</string>
+    <string name="list_xe">Danh sách xe</string>
+
+    <string name="hint_username">Nhập tài khoản</string>
+    <string name="hint_fullname">Nhập Họ tên</string>
+    <string name="hint_password">Nhập Mật khẩu</string>
+    <string name="search">Tìm kiếm</string>
+
+    <string name="title_dscty">Danh sách công ty</string>
+    <string name="title_add_cty">Thêm công ty</string>
+    <string name="title_edit">Sửa thông tin công ty</string>
+    <string name="txt_maloai">Mã loại</string>
+    <string name="txt_tenloai">Tên loại</string>
+    <string name="txt_xuatxu">Xuất xứ</string>
+    <string name="ed_nhapmaloai">Nhập mã loại</string>
+    <string name="ed_nhaptenloai">Nhập tên loại</string>
+    <string name="ed_nhapxuatxu">Nhập xuất xứ</string>
+
+
+</resources>
