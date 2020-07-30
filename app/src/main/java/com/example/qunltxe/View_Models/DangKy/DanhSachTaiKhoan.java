@@ -1,4 +1,4 @@
-package com.example.qunltxe.View_Models.QuanLyXe;
+package com.example.qunltxe.View_Models.DangKy;
 
 import android.annotation.SuppressLint;
 import android.app.SearchManager;
@@ -9,8 +9,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -19,56 +17,45 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qunltxe.Adapter.XeRecyclerAdapter;
-import com.example.qunltxe.Data_Models.Xe;
-import com.example.qunltxe.Database.DBXe;
+import com.example.qunltxe.Adapter.UserRecyclerAdapter;
+import com.example.qunltxe.Data_Models.User;
+import com.example.qunltxe.Database.DBUser;
 import com.example.qunltxe.R;
 import com.example.qunltxe.View_Models.HomePage.TrangChu;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DanhSachXe extends AppCompatActivity {
-    RecyclerView recyclerViewXe;
-    ImageView img_add;
-    List<Xe> listXe = new ArrayList<>();
-    XeRecyclerAdapter xeRecyclerAdapter;
-    DBXe dbXe;
+public class DanhSachTaiKhoan extends AppCompatActivity {
+
+    RecyclerView recyclerViewUsers;
+    List<User> listUsers = new ArrayList<>();
+    UserRecyclerAdapter userRecyclerAdapter;
+    DBUser dbUser;
     SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.danh_sach_xe);
+        setContentView(R.layout.danh_sach_user);
         setControl();
         setEvent();
     }
 
-    private void setControl() {
-        recyclerViewXe = findViewById(R.id.recyclerViewXe);
-        img_add = findViewById(R.id.img_add);
+    private void setEvent() {
+        listUsers = new ArrayList<>();
+        userRecyclerAdapter = new UserRecyclerAdapter(this, listUsers);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerViewUsers.setLayoutManager(mLayoutManager);
+        recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewUsers.setHasFixedSize(true);
+        recyclerViewUsers.setAdapter(userRecyclerAdapter);
+        dbUser = new DBUser(this);
+        UpdateData();
     }
 
-    private void setEvent() {
-
-        img_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DanhSachXe.this, ThemXe.class);
-                startActivity(intent);
-
-            }
-        });
-
-        listXe = new ArrayList<>();
-        xeRecyclerAdapter = new XeRecyclerAdapter(this, listXe);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewXe.setLayoutManager(mLayoutManager);
-        recyclerViewXe.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewXe.setHasFixedSize(true);
-        recyclerViewXe.setAdapter(xeRecyclerAdapter);
-        dbXe = new DBXe(this);
-        UpdateData();
+    private void setControl() {
+        recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -76,8 +63,8 @@ public class DanhSachXe extends AppCompatActivity {
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
-                listXe.clear();
-                listXe.addAll(dbXe.getAllXe());
+                listUsers.clear();
+                listUsers.addAll(dbUser.getAllUser());
 
                 return null;
             }
@@ -85,7 +72,7 @@ public class DanhSachXe extends AppCompatActivity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                xeRecyclerAdapter.notifyDataSetChanged();
+                userRecyclerAdapter.notifyDataSetChanged();
             }
         }.execute();
     }
@@ -100,13 +87,13 @@ public class DanhSachXe extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                xeRecyclerAdapter.getFilter().filter(query);
+                userRecyclerAdapter.getFilter().filter(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String query) {
-                xeRecyclerAdapter.getFilter().filter(query);
+                userRecyclerAdapter.getFilter().filter(query);
                 return false;
             }
         });
@@ -135,7 +122,7 @@ public class DanhSachXe extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(DanhSachXe.this, TrangChu.class);
+                        Intent intent = new Intent(DanhSachTaiKhoan.this, TrangChu.class);
                         startActivity(intent);
                     }
                 })
@@ -148,4 +135,3 @@ public class DanhSachXe extends AppCompatActivity {
     }
 
 }
-

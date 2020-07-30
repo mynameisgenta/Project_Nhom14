@@ -176,7 +176,9 @@
 
             <ImageView
                 android:id="@+id/img_delete"
-                style="@style/img_delete" />
+                style="@style/img_delete"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp" />
 
         </LinearLayout>
 

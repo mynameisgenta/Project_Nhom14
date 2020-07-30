@@ -18,13 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.qunltxe.Data_Models.User;
 import com.example.qunltxe.Database.DBUser;
 import com.example.qunltxe.R;
-import com.example.qunltxe.View_Models.TaiKhoan.ChinhSuaTaiKhoan;
-import com.example.qunltxe.View_Models.TaiKhoan.DanhSachTaiKhoan;
+import com.example.qunltxe.View_Models.DangKy.ChinhSuaTaiKhoan;
+import com.example.qunltxe.View_Models.DangKy.DanhSachTaiKhoan;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.qunltxe.View_Models.HomePage.DangNhap.getPref;
+import static com.example.qunltxe.View_Models.DangNhap.DangNhap.getPref;
 
 public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder> {
 
@@ -42,11 +42,12 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
     public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.user_recycleview, parent, false);
+
         return new UserViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(final UserViewHolder holder, int position) {
+    public void onBindViewHolder(UserViewHolder holder, int position) {
         final User user = listUsers_filteredList.get(position);
         holder.textViewUsername.setText(user.getUsername());
         holder.textViewFullName.setText(user.getFullname());
@@ -54,12 +55,11 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
         holder.img_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String current_username = getPref("username", context.getApplicationContext());
                 String username_data = user.getUsername();
-                boolean currentUserName = current_username.contentEquals(username_data);
+                boolean resultDeleteUser = current_username.contentEquals(username_data);
 
-                if (currentUserName == true) {
+                if (resultDeleteUser == true) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(context);
                     alert.setTitle("Lỗi");
                     alert.setMessage("Bạn đang sử dụng tài khoản này");
@@ -68,7 +68,6 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
                 } else {
                     showDeleteUserDialog(user);
                 }
-
             }
         });
 

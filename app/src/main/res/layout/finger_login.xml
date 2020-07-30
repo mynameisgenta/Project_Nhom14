@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@drawable/bg_finger_login"
-    tools:context="com.example.qunltxe.View_Models.HomePage.VanTay">
+    tools:context="com.example.qunltxe.View_Models.DangNhap.VanTay">
 
     <LinearLayout style="@style/linear_finger">
 

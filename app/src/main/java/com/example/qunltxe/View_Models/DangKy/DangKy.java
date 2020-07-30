@@ -1,4 +1,4 @@
-package com.example.qunltxe.View_Models.TaiKhoan;
+package com.example.qunltxe.View_Models.DangKy;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.qunltxe.Data_Models.User;
 import com.example.qunltxe.Database.DBUser;
 import com.example.qunltxe.R;
-import com.example.qunltxe.View_Models.HomePage.DangNhap;
+import com.example.qunltxe.View_Models.DangNhap.DangNhap;
 
 
 public class DangKy extends AppCompatActivity {
@@ -38,7 +38,7 @@ public class DangKy extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DangKy.this, DangNhap.class);
                 startActivity(intent);
-
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             }
         });
 
@@ -78,16 +78,14 @@ public class DangKy extends AppCompatActivity {
             user.setFullname(reg_fullname.getText().toString().trim());
             user.setPassword(reg_password.getText().toString().trim());
             dbUser.addUser(user);
-
             AlertDialog.Builder alert = new AlertDialog.Builder(DangKy.this);
             alert.setTitle("Thông báo");
             alert.setMessage("Đăng ký thành công");
             alert.setPositiveButton("OK", null);
             alert.show();
-
         } else {
             AlertDialog.Builder alert = new AlertDialog.Builder(DangKy.this);
-            alert.setTitle("Lỗi");
+            alert.setTitle("Thông báo");
             alert.setMessage("Tài khoản đã tồn tại");
             alert.setPositiveButton("OK", null);
             alert.show();

@@ -17,14 +17,15 @@ public class DBUser extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "UserManager.db";
     private static final String TABLE_USER = "user";
 
+    //    private static final String COLUMN_USER_ID = "user_id";
     private static final String COLUMN_USER_NAME = "user_name";
     private static final String COLUMN_FULL_NAME = "full_name";
     private static final String COLUMN_USER_PASSWORD = "user_password";
 
     private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
+//            + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COLUMN_USER_NAME + " TEXT PRIMARY KEY,"
-            + COLUMN_FULL_NAME + " TEXT,"
-            + COLUMN_USER_PASSWORD + " TEXT" + ")";
+            + COLUMN_FULL_NAME + " TEXT," + COLUMN_USER_PASSWORD + " TEXT" + ")";
 
     private String DROP_USER_TABLE = "DROP TABLE IF EXISTS " + TABLE_USER;
 
@@ -52,8 +53,6 @@ public class DBUser extends SQLiteOpenHelper {
         values.put(COLUMN_FULL_NAME, user.getFullname());
         values.put(COLUMN_USER_PASSWORD, user.getPassword());
         db.insert(TABLE_USER, null, values);
-        String account1 = "INSERT INTO " + TABLE_USER + " Values ('admin','Administrator','admin');";
-        db.execSQL(account1);
         db.close();
     }
 
@@ -128,10 +127,7 @@ public class DBUser extends SQLiteOpenHelper {
         int cursorCount = cursor.getCount();
         cursor.close();
         db.close();
-        if (cursorCount > 0) {
-            return true;
-        }
-        return false;
+        return cursorCount > 0;
     }
 
     public boolean checkUserLogin(String username, String password) {
@@ -152,35 +148,6 @@ public class DBUser extends SQLiteOpenHelper {
         int cursorCount = cursor.getCount();
         cursor.close();
         db.close();
-        if (cursorCount > 0) {
-            return true;
-
-        }
-        return false;
+        return cursorCount > 0;
     }
-
-    public boolean checkUserDelete(String username) {
-
-        String[] columns = {
-                COLUMN_USER_NAME
-        };
-        SQLiteDatabase db = this.getReadableDatabase();
-        String selection = COLUMN_USER_NAME + " = ?";
-        String[] selectionArgs = {username};
-        Cursor cursor = db.query(TABLE_USER,
-                columns,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                null);
-        int cursorCount = cursor.getCount();
-        cursor.close();
-        db.close();
-        if (cursorCount > 0) {
-            return true;
-        }
-        return false;
-    }
-
 }

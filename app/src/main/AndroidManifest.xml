@@ -13,20 +13,16 @@
         android:roundIcon="@mipmap/ic_logolauncher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View_Models.QuanLyCongTy.ChinhSuaCongTy"></activity>
-        <activity android:name=".View_Models.QuanLyCongTy.ThemCongTy" />
-        <activity android:name=".Adapter.CongTyRecyclerAdapter"
-            tools:ignore="Instantiatable" />
-        <activity android:name=".View_Models.TaiKhoan.ChinhSuaTaiKhoan" />
+        <activity android:name=".View_Models.DangKy.ChinhSuaTaiKhoan"></activity>
         <activity
             android:name=".Adapter.UserRecyclerAdapter"
             tools:ignore="Instantiatable" />
-        <activity android:name=".View_Models.TaiKhoan.DanhSachTaiKhoan" />
+        <activity android:name=".View_Models.DangKy.DanhSachTaiKhoan" />
         <activity
-            android:name=".View_Models.TaiKhoan.DangKy"
+            android:name=".View_Models.DangKy.DangKy"
             android:theme="@style/Register" />
         <activity
-            android:name=".View_Models.HomePage.DangNhap"
+            android:name=".View_Models.DangNhap.DangNhap"
             android:theme="@style/Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,18 +31,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View_Models.HomePage.VanTay"
+            android:name=".View_Models.DangNhap.VanTay"
             android:theme="@style/FingerLogin" />
         <activity
             android:name=".View_Models.HomePage.SplashScreen"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme">
+
+        </activity>
+
+
         <activity
             android:name=".View_Models.HomePage.TrangChu"
             android:theme="@style/HomePage" />
         <activity android:name=".View_Models.QuanLyXe.ChinhSuaXe" />
         <activity android:name=".View_Models.QuanLyXe.ThemXe" />
         <activity android:name=".View_Models.QuanLyXe.DanhSachXe" />
-        <activity android:name=".View_Models.QuanLyCongTy.DanhSachCongTy" />
+
+        <activity android:name=".View_Models.QuanLyCongTy.ChinhSuaCongTy" />
+        <activity android:name=".View_Models.QuanLyCongTy.ThemCongTy" />
+        <activity android:name=".View_Models.QuanLyCongTy.DanhSachCty" />
     </application>
 
 </manifest>

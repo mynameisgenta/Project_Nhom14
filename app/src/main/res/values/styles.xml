@@ -27,9 +27,9 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">#03A9F4</item>
-        <item name="android:textColor">#FFFFFF</item>
         <item name="android:gravity">center</item>
         <item name="android:text">@string/title_add</item>
+        <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">30dp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -94,12 +94,19 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
     <!-- Nhập thông tin xe -->
     <style name="linear_info">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:layout_weight">5</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+    <!-- Nhập thông tin congty -->
+    <style name="linear_info_cty">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:layout_margin">20dp</item>
     </style>
@@ -233,7 +240,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
-        <item name="android:hint">@string/hint_maloai</item>
+        <item name="android:hint">@string/hint_maxe</item>
         <item name="android:enabled">false</item>
         <item name="android:imeOptions">actionNext</item>
         <item name="android:background">@drawable/state_textbox_white</item>
@@ -891,93 +898,77 @@
         <item name="android:imeOptions">actionNext</item>
     </style>
 
-    <!-- Linear Button -->
-    <style name="linear_btn">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:orientation">horizontal</item>
-        <item name="android:gravity">center</item>
-    </style>
-
-    <!--Tieu de them Cong Ty-->
-    <style name="title_add_cty">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">32dp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:background">#03A9F4</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:text">@string/title_add_cty</item>
-    </style>
-
-    <!-- Text tên loại  -->
-    <style name="txtTenloai">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:text">@string/txt_tenloai</item>
-        <item name="android:textSize">20dp</item>
-        <item name="android:textColor">#000000</item>
-    </style>
-
-    <!-- Text xuất xứ  -->
-    <style name="txtXuatxu">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:text">@string/txt_xuatxu</item>
-        <item name="android:textSize">20dp</item>
-        <item name="android:textColor">#000000</item>
-    </style>
-
-    <!-- EditText tên loại  -->
-    <style name="edit_tenloai">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:hint">@string/ed_nhaptenloai</item>
-        <item name="android:imeOptions">actionNext</item>
-        <item name="android:background">@drawable/state_textbox_white</item>
-        <item name="android:inputType">text</item>
-        <item name="android:drawableLeft">@drawable/name_cty</item>
-        <item name="android:drawablePadding">5dp</item>
-    </style>
-
-    <!-- EditText xuất xứ  -->
-    <style name="edit_xuatxu">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:hint">@string/ed_nhapxuatxu</item>
-        <item name="android:imeOptions">actionNext</item>
-        <item name="android:background">@drawable/state_textbox_white</item>
-        <item name="android:inputType">text</item>
-        <item name="android:drawableLeft">@drawable/country</item>
-        <item name="android:drawablePadding">5dp</item>
-    </style>
-
-    <!-- Nhập thông tin xe -->
-    <style name="linear_info_cty">
+    <!--Show danh sách công ty-->
+    <style name="linear_infor_cty">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:layout_margin">20dp</item>
+        <item name="android:layout_weight">12</item>
+        <item name="android:padding">15dp</item>
     </style>
 
-    <!--Tiêu đề sửa Công Ty-->
-    <style name="title_edit_cty">
+    <style name="linear_tv">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">32dp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:background">#03A9F4</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:text">@string/title_edit</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">5dp</item>
     </style>
 
-    <!--Tieu de them Cong Ty-->
+    <style name="tv_title_maloai">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/txt_maloai</item>
+    </style>
+
+    <style name="tv_content_maloai">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="tv_title_tenloai">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/txt_tenloai</item>
+    </style>
+
+    <style name="tv_content_tenloai">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="tv_title_xuatxu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/txt_xuatxu</item>
+    </style>
+
+    <style name="tv_content_xuatxu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <!--Image btn-->
+    <style name="linear_img_btn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!--Tiều đề danh sách công ty-->
     <style name="title_dscty">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -985,12 +976,12 @@
         <item name="android:textSize">32dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:background">#03A9F4</item>
         <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#03A9F4</item>
         <item name="android:text">@string/title_dscty</item>
     </style>
 
-    <!--Styel ListView-->
+    <!--Style List-->
     <style name="lv_linear_list">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1017,4 +1008,81 @@
         <item name="android:src">@drawable/ic_add</item>
     </style>
 
+    <!--Tiêu đề thêm công ty-->
+    <style name="title_add_cty">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">32dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#03A9F4</item>
+        <item name="android:text">@string/title_add_cty</item>
+    </style>
+
+    <!--Tiêu đề sửa Công Ty-->
+    <style name="title_edit_cty">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">32dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">#03A9F4</item>
+        <item name="android:text">@string/title_edit</item>
+    </style>
+
+    <!-- Text tên loại  -->
+    <style name="txtTenloai">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/txt_tenloai</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <!-- EditText tên loại  -->
+    <style name="edit_tenloai">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:hint">@string/ed_nhaptenloai</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:background">@drawable/state_textbox_white</item>
+        <item name="android:inputType">text</item>
+        <item name="android:drawableLeft">@drawable/name_cty</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+
+    <!-- Text xuất xứ  -->
+    <style name="txtXuatxu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/txt_xuatxu</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <!-- EditText xuất xứ  -->
+    <style name="edit_xuatxu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:hint">@string/ed_nhapxuatxu</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:background">@drawable/state_textbox_white</item>
+        <item name="android:inputType">text</item>
+        <item name="android:drawableLeft">@drawable/country</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+
+    <!-- Linear Button -->
+    <style name="linear_btn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>

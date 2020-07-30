@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qunltxe.R;
+import com.example.qunltxe.View_Models.DangNhap.DangNhap;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -28,8 +29,8 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void setControl() {
-        Logo = (ImageView) findViewById(R.id.image);
-        Loading = (TextView) findViewById(R.id.loading);
+        Logo = findViewById(R.id.image);
+        Loading = findViewById(R.id.loading);
     }
 
     private void startAnimation() {
@@ -61,7 +62,7 @@ public class SplashScreen extends AppCompatActivity {
                 Intent intent = new Intent(SplashScreen.this, DangNhap.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
-
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             }
         };
         Thread.start();

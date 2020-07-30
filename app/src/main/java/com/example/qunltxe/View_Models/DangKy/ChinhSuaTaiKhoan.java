@@ -1,4 +1,4 @@
-package com.example.qunltxe.View_Models.QuanLyCongTy;
+package com.example.qunltxe.View_Models.DangKy;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,24 +14,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.qunltxe.Data_Models.CongTy;
 import com.example.qunltxe.Data_Models.User;
-import com.example.qunltxe.Data_Models.Xe;
-import com.example.qunltxe.Database.DBCongTy;
 import com.example.qunltxe.Database.DBUser;
-import com.example.qunltxe.Database.DBXe;
 import com.example.qunltxe.R;
 import com.example.qunltxe.View_Models.HomePage.TrangChu;
-import com.example.qunltxe.View_Models.TaiKhoan.ChinhSuaTaiKhoan;
-import com.example.qunltxe.View_Models.TaiKhoan.DanhSachTaiKhoan;
 
 import java.util.ArrayList;
 
-public class ChinhSuaCongTy extends AppCompatActivity {
-    
-    EditText ed_maloai, ed_tenloai, ed_xuatxu;
+public class ChinhSuaTaiKhoan extends AppCompatActivity {
+
+    EditText txtUsername, txtFullname, txtPassword;
     Button btnClear, btnEdit;
-    ArrayList<CongTy> dataCONGTY = new ArrayList<>();
+    ArrayList<User> dataUSER = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,28 +36,28 @@ public class ChinhSuaCongTy extends AppCompatActivity {
     }
 
     private void setControl() {
-        ed_maloai = findViewById(R.id.ed_maloai);
-        ed_tenloai = findViewById(R.id.txtFullname);
-        ed_xuatxu = findViewById(R.id.ed_xuatxu);
-        btnEdit = findViewById(R.id.btn_sua);
-        btnClear = findViewById(R.id.btn_clear);
+        txtUsername = findViewById(R.id.txtUsername);
+        txtFullname = findViewById(R.id.txtFullname);
+        txtPassword = findViewById(R.id.txtPassword);
+        btnEdit = findViewById(R.id.btnUpdate);
+        btnClear = findViewById(R.id.btnClear);
     }
 
-    public CongTy getCongTy() {
-        CongTy congTy = new CongTy();
-        congTy.setMaLoai(ed_maloai.getText().toString());
-        congTy.setTenLoai(ed_tenloai.getText().toString());
-        congTy.setXuatXu(ed_xuatxu.getText().toString());
-        return congTy;
+    public User getUser() {
+        User user = new User();
+        user.setUsername(txtUsername.getText().toString());
+        user.setFullname(txtFullname.getText().toString());
+        user.setPassword(txtPassword.getText().toString());
+        return user;
     }
 
     private void setEvent() {
-        String maloai = getIntent().getExtras().getString("maloai");
-        DBCongTy dbCongTy = new DBCongTy(getApplicationContext());
-        dataCONGTY = dbCongTy.getAllCty(maloai);
-        ed_maloai.setText(dataCONGTY.get(0).getMaLoai());
-        ed_tenloai.setText(dataCONGTY.get(0).getTenLoai());
-        ed_xuatxu.setText(dataCONGTY.get(0).getXuatXu());
+        String username = getIntent().getExtras().getString("user_name");
+        DBUser dbUser = new DBUser(getApplicationContext());
+        dataUSER = dbUser.getAllUser(username);
+        txtUsername.setText(dataUSER.get(0).getUsername());
+        txtFullname.setText(dataUSER.get(0).getFullname());
+        txtPassword.setText(dataUSER.get(0).getPassword());
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,12 +69,11 @@ public class ChinhSuaCongTy extends AppCompatActivity {
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ed_maloai.setText("");
-                ed_tenloai.setText("");
-                ed_xuatxu.setText("");
-                AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaCongTy.this);
+                txtFullname.setText("");
+                txtPassword.setText("");
+                AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaTaiKhoan.this);
                 alert.setTitle("Thông báo");
-                alert.setMessage("Clear thông tin công ty thành công");
+                alert.setMessage("Clear thông tin xe thành công");
                 alert.setPositiveButton("OK", null);
                 alert.show();
             }
@@ -87,19 +81,17 @@ public class ChinhSuaCongTy extends AppCompatActivity {
     }
 
     public void InputUpdate() {
-        if (ed_maloai.getText().toString().isEmpty()) {
-            ed_maloai.setError("Bạn chưa nhập mã loại");
-        } else if (ed_tenloai.getText().toString().isEmpty()) {
-            ed_tenloai.setError("Bạn chưa nhập tên loại");
-        } else if (ed_xuatxu.getText().toString().isEmpty()) {
-            ed_xuatxu.setError("Bạn chưa nhập xuất xứ");
+        if (txtFullname.getText().toString().isEmpty()) {
+            txtFullname.setError("Bạn chưa nhập họ tên");
+        } else if (txtPassword.getText().toString().isEmpty()) {
+            txtPassword.setError("Bạn chưa nhập mật khẩu");
         } else {
-            DBCongTy dbCongTy = new DBCongTy(getApplicationContext());
-            CongTy congTy = getCongTy();
-            dbCongTy.updateCongty(congTy);
-            AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaCongTy.this);
+            DBUser dbUser = new DBUser(getApplicationContext());
+            User user = getUser();
+            dbUser.updateUser(user);
+            AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaTaiKhoan.this);
             alert.setTitle("Thông báo");
-            alert.setMessage("Cập nhật thông tin công ty thành công");
+            alert.setMessage("Cập nhật thông tin tài khoản thành công");
             alert.setPositiveButton("OK", null);
             alert.show();
         }
@@ -125,7 +117,7 @@ public class ChinhSuaCongTy extends AppCompatActivity {
 
 
             default:
-                AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaCongTy.this);
+                AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaTaiKhoan.this);
                 alert.setTitle("Thông báo");
                 alert.setMessage("Có lỗi xảy ra !");
                 alert.setPositiveButton("OK", null);
@@ -140,7 +132,7 @@ public class ChinhSuaCongTy extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ChinhSuaCongTy.this, TrangChu.class);
+                        Intent intent = new Intent(ChinhSuaTaiKhoan.this, TrangChu.class);
                         startActivity(intent);
                     }
                 })
@@ -153,9 +145,9 @@ public class ChinhSuaCongTy extends AppCompatActivity {
     }
 
     public void checkListUser() {
-        Intent intent = new Intent(this, DanhSachCongTy.class);
+        Intent intent = new Intent(this, DanhSachTaiKhoan.class);
         startActivity(intent);
-
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(this, "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
     }
 }

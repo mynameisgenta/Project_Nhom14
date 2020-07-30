@@ -55,11 +55,11 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
         this.update("Đăng nhập thành công", true);
         Intent intent = new Intent(context, TrangChu.class);
         context.startActivity(intent);
-
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 
     public void update(String e, Boolean success) {
-        TextView textView = (TextView) ((Activity) context).findViewById(R.id.errorText);
+        TextView textView = ((Activity) context).findViewById(R.id.errorText);
         textView.setText(e);
         if (success) {
             textView.setTextColor(ContextCompat.getColor(context, R.color.blue));
