@@ -927,6 +927,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">2dp</item>
         <item name="android:textSize">18dp</item>
+        <item name="android:text">@string/txt_maloai</item>
     </style>
 
     <style name="tv_title_tenloai">
@@ -942,6 +943,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">2dp</item>
         <item name="android:textSize">18dp</item>
+        <item name="android:text">@string/txt_tenloai</item>
     </style>
 
     <style name="tv_title_xuatxu">
@@ -957,6 +959,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">2dp</item>
         <item name="android:textSize">18dp</item>
+        <item name="android:text">@string/txt_xuatxu</item>
     </style>
 
     <!--Image btn-->

@@ -33,7 +33,7 @@
     <string name="hint_dongia">Nhập giá xe</string>
 
     <string name="btn_add">Thêm</string>
-    <string name="btn_edit">Sửa</string>
+    <string name="btn_edit">Cập nhật</string>
     <string name="btn_update">Cập nhật</string>
     <string name="btn_delete">Xóa</string>
     <string name="btn_clear">Clear</string>
@@ -58,21 +58,21 @@
     <string name="list_xe">Danh sách xe</string>
 
     <string name="hint_username">Nhập tài khoản</string>
-    <string name="hint_fullname">Nhập Họ tên</string>
-    <string name="hint_password">Nhập Mật khẩu</string>
+    <string name="hint_fullname">Nhập họ tên</string>
+    <string name="hint_password">Nhập mật khẩu</string>
     <string name="search">Tìm kiếm</string>
 
     <!--String quản lý công ty-->
-    <string name="qlcty">Quản Lý Công Ty Xe</string>
-    <string name="qlxe">Quản Lý Xe</string>
-    <string name="ddh">Đơn Đặt Hàng</string>
+    <string name="qlcty">Quản lý công ty xe</string>
+    <string name="qlxe">Quản lý xe</string>
+    <string name="ddh">Đơn đặt hàng</string>
     <string name="thoat">Thoát</string>
-    <string name="title_dscty">Danh Sách Công Ty Xe</string>
-    <string name="title_add_cty">Thêm Công Ty Xe</string>
-    <string name="title_edit">Sửa Thông Tin Công Ty</string>
-    <string name="txt_maloai">Mã Loại: </string>
-    <string name="txt_tenloai">Tên Loại: </string>
-    <string name="txt_xuatxu">Xuất Xứ: </string>
+    <string name="title_dscty">Danh sách công ty xe</string>
+    <string name="title_add_cty">Thêm công ty xe</string>
+    <string name="title_edit">Cập nhật thông tin công ty</string>
+    <string name="txt_maloai">Mã loại </string>
+    <string name="txt_tenloai">Tên loại </string>
+    <string name="txt_xuatxu">Xuất xứ </string>
     <string name="ed_nhapmaloai">Nhập mã loại</string>
     <string name="ed_nhaptenloai">Nhập tên loại</string>
     <string name="ed_nhapxuatxu">Nhập xuất xứ</string>
