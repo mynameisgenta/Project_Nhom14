@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DBXe extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "QuanLyDatHangXe";
+    private static final String DATABASE_NAME = "QuanLyXe";
     private static final String TABLE_XE = "Xe";
 
     // Table Xe

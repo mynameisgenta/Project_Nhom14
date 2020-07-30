@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qunltxe.R;
 import com.example.qunltxe.View_Models.DangKy.DanhSachTaiKhoan;
+import com.example.qunltxe.View_Models.DangNhap.DangNhap;
 import com.example.qunltxe.View_Models.QuanLyCongTy.DanhSachCty;
 import com.example.qunltxe.View_Models.QuanLyXe.DanhSachXe;
 
@@ -64,6 +65,9 @@ public class TrangChu extends AppCompatActivity {
                         .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 finish();
+                                Intent intent = new Intent(TrangChu.this, DangNhap.class);
+                                startActivity(intent);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             }
                         })
                         .setNegativeButton("Không", new DialogInterface.OnClickListener() {

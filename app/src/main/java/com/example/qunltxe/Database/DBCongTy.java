@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DBCongTy extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "QuanLyDatHangXe";
+    private static final String DATABASE_NAME = "QuanLyCongTy";
     private static final String TABLE_CTY = "Cty";
 
     // Table Cong Ty
@@ -30,7 +30,6 @@ public class DBCongTy extends SQLiteOpenHelper {
     public DBCongTy(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {

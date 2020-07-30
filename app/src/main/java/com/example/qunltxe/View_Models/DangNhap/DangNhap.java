@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.qunltxe.Database.DBCongTy;
 import com.example.qunltxe.Database.DBUser;
 import com.example.qunltxe.R;
 import com.example.qunltxe.View_Models.DangKy.DangKy;
@@ -28,6 +29,7 @@ public class DangNhap extends AppCompatActivity {
     CheckBox cb_rememberme;
     TextView register;
     DBUser dbUser;
+    DBCongTy dbCongTy;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
@@ -50,6 +52,10 @@ public class DangNhap extends AppCompatActivity {
         setControl();
         setEvent();
         CreateData();
+    }
+
+    private void CreateData() {
+        dbUser = new DBUser(DangNhap.this);
     }
 
     public void setEvent() {
@@ -107,18 +113,12 @@ public class DangNhap extends AppCompatActivity {
         register = findViewById(R.id.go_register);
     }
 
-    private void CreateData() {
-        dbUser = new DBUser(DangNhap.this);
-    }
-
     private void checkInputLogin() {
         if (login_username.getText().toString().isEmpty()) {
             login_username.setError("Bạn chưa nhập tài khoản");
         } else if (login_password.getText().toString().isEmpty()) {
             login_password.setError("Bạn chưa nhập mật khẩu");
-        }
-
-        if (dbUser.checkUserLogin(login_username.getText().toString().trim()
+        } else if (dbUser.checkUserLogin(login_username.getText().toString().trim()
                 , login_password.getText().toString().trim())) {
             putPref("username", login_username.getText().toString().trim(), getApplicationContext());
             Intent accountsIntent = new Intent(DangNhap.this, TrangChu.class);

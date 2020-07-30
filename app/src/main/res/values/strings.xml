@@ -41,7 +41,7 @@
     <string name="btn_quanlyxe">Quản lý xe</string>
     <string name="btn_dondathang">Đơn đặt hàng</string>
     <string name="btn_user">Quản lý tài khoản</string>
-    <string name="btn_exit">Thoát</string>
+    <string name="btn_exit">Đăng xuất</string>
 
     <string name="remember_login">Ghi nhớ đăng nhập</string>
     <string name="login">Đăng nhập</string>
