@@ -38,8 +38,6 @@ public class ChinhSuaXe extends AppCompatActivity {
         txtMaxe.setText("");
         txtTenXe.setText("");
         txtDungTich.setText("");
-        txtSoLuong.setText("");
-        txtMaLoai.setText("");
         txtDonGia.setText("");
     }
 

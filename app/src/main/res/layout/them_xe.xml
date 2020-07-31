@@ -9,8 +9,17 @@
 
     <TextView style="@style/title_add" />
 
-
     <LinearLayout style="@style/linear_info">
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtMaloai" />
+
+            <Spinner
+                android:id="@+id/txtMaLoai"
+                style="@style/edit_maloai" />
+
+        </LinearLayout>
 
         <LinearLayout style="@style/linear_fill_info">
 
@@ -21,16 +30,6 @@
                 style="@style/edit_maxe" />
 
         </LinearLayout>
-
-        <LinearLayout style="@style/linear_fill_info">
-
-            <TextView style="@style/txtMaloai" />
-
-            <EditText
-                android:id="@+id/txtMaLoai"
-                style="@style/edit_maloai" />
-        </LinearLayout>
-
 
         <LinearLayout style="@style/linear_fill_info">
 

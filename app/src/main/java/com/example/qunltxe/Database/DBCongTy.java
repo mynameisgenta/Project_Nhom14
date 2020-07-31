@@ -52,6 +52,21 @@ public class DBCongTy extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void insertDataCongTy() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String data = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('HD', 'Honda', 'Nhật') ";
+        String data1 = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('KA', 'Kawasaki', 'Nhật') ";
+        String data2 = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('SU', 'Suzuki', 'Nhật') ";
+        String data3 = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('SY', 'SYM', 'Đài Loan') ";
+        String data4 = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('YM', 'Yamaha', 'Nhật') ";
+        db.execSQL(data);
+        db.execSQL(data1);
+        db.execSQL(data2);
+        db.execSQL(data3);
+        db.execSQL(data4);
+        db.close();
+    }
+
     public void updateCongty(CongTy congTy) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -113,7 +128,7 @@ public class DBCongTy extends SQLiteOpenHelper {
         return data;
     }
 
-    public boolean checkCodeMoto(String username) {
+    public boolean checkCodeCongTy(String username) {
 
         String[] columns = {
                 COLUMN_MA_LOAI

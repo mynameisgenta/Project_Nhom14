@@ -46,7 +46,7 @@ public class ThemCongTy extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkInputAddCty();
-            }
+        }
         });
 
         btn_clear.setOnClickListener(new View.OnClickListener() {
@@ -60,14 +60,13 @@ public class ThemCongTy extends AppCompatActivity {
     }
 
     private void checkInputAddCty() {
-
         if (ed_maloai.getText().toString().isEmpty()) {
             ed_maloai.setError("Bạn chưa nhập mã loại");
         } else if (ed_tenloai.getText().toString().isEmpty()) {
             ed_tenloai.setError("Bạn chưa nhập tên loại");
         } else if (ed_xuatxu.getText().toString().isEmpty()) {
             ed_xuatxu.setError("Bạn chưa nhập xuất xứ");
-        } else if (!dbCongTy.checkCodeMoto(ed_maloai.getText().toString().trim())) {
+        } else if (!dbCongTy.checkCodeCongTy(ed_maloai.getText().toString().trim())) {
             congTy.setMaLoai(ed_maloai.getText().toString().trim());
             congTy.setTenLoai(ed_tenloai.getText().toString().trim());
             congTy.setXuatXu(ed_xuatxu.getText().toString().trim());
@@ -78,7 +77,6 @@ public class ThemCongTy extends AppCompatActivity {
             alert.setMessage("Thêm công ty thành công");
             alert.setPositiveButton("OK", null);
             alert.show();
-
         } else {
             AlertDialog.Builder alert = new AlertDialog.Builder(ThemCongTy.this);
             alert.setTitle("Thông báo");

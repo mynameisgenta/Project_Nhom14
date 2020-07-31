@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,7 +23,9 @@ import com.example.qunltxe.R;
 import com.example.qunltxe.View_Models.HomePage.TrangChu;
 
 public class ThemXe extends AppCompatActivity {
-    EditText txtMaxe, txtTenXe, txtDungTich, txtSoLuong, txtMaLoai, txtDonGia;
+    EditText txtMaxe, txtTenXe, txtDungTich, txtSoLuong, txtDonGia;
+    Spinner txtMaLoai;
+    private String[] DSMaLoai = {"HD", "KA", "SU", "SY", "YM"};
     Button btnAdd, btnClear;
     RecyclerView recyclerViewXe;
     DBXe dbXe;
@@ -33,6 +37,7 @@ public class ThemXe extends AppCompatActivity {
         setContentView(R.layout.them_xe);
         setControl();
         setEvent();
+        spinnerData();
         KhoiTaoData();
     }
 
@@ -62,7 +67,6 @@ public class ThemXe extends AppCompatActivity {
         txtTenXe.setText("");
         txtDungTich.setText("");
         txtSoLuong.setText("");
-        txtMaLoai.setText("");
         txtDonGia.setText("");
     }
 
@@ -78,8 +82,14 @@ public class ThemXe extends AppCompatActivity {
         recyclerViewXe = findViewById(R.id.recyclerViewXe);
     }
 
-    private void checkInputAddXe() {
+    public void spinnerData() {
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, DSMaLoai);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        txtMaLoai.setAdapter(adapter);
+    }
 
+    private void checkInputAddXe() {
+        String text_MaLoai = txtMaLoai.getSelectedItem().toString().trim();
         if (txtMaxe.getText().toString().isEmpty()) {
             txtMaxe.setError("Bạn chưa nhập mã xe");
         } else if (txtTenXe.getText().toString().isEmpty()) {
@@ -88,12 +98,10 @@ public class ThemXe extends AppCompatActivity {
             txtDungTich.setError("Bạn chưa nhập dung tích");
         } else if (txtSoLuong.getText().toString().isEmpty()) {
             txtSoLuong.setError("Bạn chưa nhập số lượng");
-        } else if (txtMaLoai.getText().toString().isEmpty()) {
-            txtMaLoai.setError("Bạn chưa nhập mã loại");
         } else if (txtDonGia.getText().toString().isEmpty()) {
             txtDonGia.setError("Bạn chưa nhập đơn giá");
         } else if (!dbXe.checkCodeMoto(txtMaxe.getText().toString().trim())) {
-            xe.setMaLoai(txtMaLoai.getText().toString().trim());
+            xe.setMaLoai(text_MaLoai);
             xe.setMaXe(txtMaxe.getText().toString().trim());
             xe.setTenXe(txtTenXe.getText().toString().trim());
             xe.setDungTich(Integer.parseInt(txtDungTich.getText().toString().trim()));

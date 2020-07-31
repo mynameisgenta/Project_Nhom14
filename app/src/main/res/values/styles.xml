@@ -318,11 +318,10 @@
     <!-- EditText mã loại xe  -->
     <style name="edit_maloai">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:singleLine">true</item>
+        <item name="android:layout_height">50dp</item>
         <item name="android:hint">@string/hint_maloai</item>
         <item name="android:imeOptions">actionNext</item>
-        <item name="android:background">@drawable/state_textbox_white</item>
+        <item name="android:background">@drawable/spinner_bg</item>
         <item name="android:inputType">text</item>
         <item name="android:drawableLeft">@drawable/type</item>
         <item name="android:drawablePadding">1dp</item>
@@ -571,7 +570,7 @@
         <item name="android:background">@drawable/ic_delete</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_marginLeft">5dp</item>
-        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginRight">20dp</item>
 
     </style>
 
@@ -925,7 +924,7 @@
     <style name="tv_content_maloai">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginLeft">19dp</item>
         <item name="android:textSize">18dp</item>
         <item name="android:text">@string/txt_maloai</item>
     </style>
@@ -941,7 +940,7 @@
     <style name="tv_content_tenloai">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
         <item name="android:textSize">18dp</item>
         <item name="android:text">@string/txt_tenloai</item>
     </style>
@@ -957,7 +956,7 @@
     <style name="tv_content_xuatxu">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginLeft">17dp</item>
         <item name="android:textSize">18dp</item>
         <item name="android:text">@string/txt_xuatxu</item>
     </style>
