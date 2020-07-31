@@ -18,17 +18,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qunltxe.Data_Models.Xe;
+import com.example.qunltxe.Database.DBCongTy;
 import com.example.qunltxe.Database.DBXe;
 import com.example.qunltxe.R;
 import com.example.qunltxe.View_Models.HomePage.TrangChu;
 
+import java.util.List;
+
 public class ThemXe extends AppCompatActivity {
     EditText txtMaxe, txtTenXe, txtDungTich, txtSoLuong, txtDonGia;
     Spinner txtMaLoai;
-    private String[] DSMaLoai = {"HD", "KA", "SU", "SY", "YM"};
     Button btnAdd, btnClear;
     RecyclerView recyclerViewXe;
     DBXe dbXe;
+    DBCongTy dbCongTy;
     Xe xe;
 
     @Override
@@ -37,7 +40,7 @@ public class ThemXe extends AppCompatActivity {
         setContentView(R.layout.them_xe);
         setControl();
         setEvent();
-        spinnerData();
+        setDataMaLoaiSpinner();
         KhoiTaoData();
     }
 
@@ -82,10 +85,12 @@ public class ThemXe extends AppCompatActivity {
         recyclerViewXe = findViewById(R.id.recyclerViewXe);
     }
 
-    public void spinnerData() {
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, DSMaLoai);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        txtMaLoai.setAdapter(adapter);
+    public void setDataMaLoaiSpinner() {
+        dbCongTy = new DBCongTy(getApplicationContext());
+        List<String> maLoai = dbCongTy.getMaLoai();
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, maLoai);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        txtMaLoai.setAdapter(dataAdapter);
     }
 
     private void checkInputAddXe() {

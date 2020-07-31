@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.qunltxe.Data_Models.CongTy;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBCongTy extends SQLiteOpenHelper {
 
@@ -52,21 +53,6 @@ public class DBCongTy extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void insertDataCongTy() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String data = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('HD', 'Honda', 'Nhật') ";
-        String data1 = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('KA', 'Kawasaki', 'Nhật') ";
-        String data2 = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('SU', 'Suzuki', 'Nhật') ";
-        String data3 = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('SY', 'SYM', 'Đài Loan') ";
-        String data4 = "INSERT INTO Cty (maloai, tenloai, xuatxu) VALUES ('YM', 'Yamaha', 'Nhật') ";
-        db.execSQL(data);
-        db.execSQL(data1);
-        db.execSQL(data2);
-        db.execSQL(data3);
-        db.execSQL(data4);
-        db.close();
-    }
-
     public void updateCongty(CongTy congTy) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -103,6 +89,23 @@ public class DBCongTy extends SQLiteOpenHelper {
         } catch (Exception ex) {
         }
         return data;
+    }
+
+    public List<String> getMaLoai() {
+        List<String> list = new ArrayList<String>();
+        String selectQuery = "SELECT  maloai FROM " + TABLE_CTY;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                list.add(cursor.getString(0));
+                list.add(cursor.getString(1));
+                list.add(cursor.getString(2));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
     }
 
     public ArrayList<CongTy> getAllCty(String maloai) {

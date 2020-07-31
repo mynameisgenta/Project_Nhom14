@@ -14,21 +14,21 @@
 
         <LinearLayout style="@style/linear_fill_info">
 
+            <TextView style="@style/txtMaloai" />
+
+            <EditText
+                android:id="@+id/txtMaLoai"
+                style="@style/edit_maloai_disable" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
             <TextView style="@style/txtMaxe" />
 
             <EditText
                 android:id="@+id/txtMaXe"
                 style="@style/edit_maxe" />
 
-        </LinearLayout>
-
-        <LinearLayout style="@style/linear_fill_info">
-
-            <TextView style="@style/txtMaloai" />
-
-            <EditText
-                android:id="@+id/txtMaLoai"
-                style="@style/edit_maloai_disable" />
         </LinearLayout>
 
         <LinearLayout style="@style/linear_fill_info">

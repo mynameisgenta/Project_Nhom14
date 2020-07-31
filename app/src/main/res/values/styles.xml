@@ -240,7 +240,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
-        <item name="android:hint">@string/hint_maxe</item>
+        <item name="android:hint">@string/hint_maloai</item>
         <item name="android:enabled">false</item>
         <item name="android:imeOptions">actionNext</item>
         <item name="android:background">@drawable/state_textbox_white</item>
@@ -317,6 +317,18 @@
 
     <!-- EditText mã loại xe  -->
     <style name="edit_maloai">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:hint">@string/hint_maloai</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:background">@drawable/state_textbox_white</item>
+        <item name="android:inputType">text</item>
+        <item name="android:drawableLeft">@drawable/type</item>
+        <item name="android:drawablePadding">1dp</item>
+    </style>
+
+    <!-- EditText mã loại xe  -->
+    <style name="edit_maloai_spinner">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:hint">@string/hint_maloai</item>

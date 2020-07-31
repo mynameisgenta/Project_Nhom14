@@ -17,7 +17,7 @@
 
             <Spinner
                 android:id="@+id/txtMaLoai"
-                style="@style/edit_maloai" />
+                style="@style/edit_maloai_spinner" />
 
         </LinearLayout>
 
