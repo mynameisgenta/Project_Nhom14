@@ -46,7 +46,7 @@ public class ThemCongTy extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkInputAddCty();
-        }
+            }
         });
 
         btn_clear.setOnClickListener(new View.OnClickListener() {

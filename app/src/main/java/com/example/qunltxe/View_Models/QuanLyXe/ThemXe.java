@@ -40,7 +40,7 @@ public class ThemXe extends AppCompatActivity {
         setContentView(R.layout.them_xe);
         setControl();
         setEvent();
-        setDataMaLoaiSpinner();
+        loadSpinnerData();
         KhoiTaoData();
     }
 
@@ -85,11 +85,13 @@ public class ThemXe extends AppCompatActivity {
         recyclerViewXe = findViewById(R.id.recyclerViewXe);
     }
 
-    public void setDataMaLoaiSpinner() {
+    private void loadSpinnerData() {
         dbCongTy = new DBCongTy(getApplicationContext());
-        List<String> maLoai = dbCongTy.getMaLoai();
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, maLoai);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        List<String> data = dbCongTy.getALLMaLoai();
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, data);
+        dataAdapter
+                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         txtMaLoai.setAdapter(dataAdapter);
     }
 

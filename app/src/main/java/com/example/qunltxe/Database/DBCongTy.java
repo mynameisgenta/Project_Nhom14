@@ -91,21 +91,22 @@ public class DBCongTy extends SQLiteOpenHelper {
         return data;
     }
 
-    public List<String> getMaLoai() {
-        List<String> list = new ArrayList<String>();
+    public List<String> getALLMaLoai() {
+        List<String> data = new ArrayList<String>();
         String selectQuery = "SELECT  maloai FROM " + TABLE_CTY;
+
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
-                list.add(cursor.getString(0));
-                list.add(cursor.getString(1));
-                list.add(cursor.getString(2));
+                data.add(cursor.getString(0));
             } while (cursor.moveToNext());
         }
+
         cursor.close();
         db.close();
-        return list;
+
+        return data;
     }
 
     public ArrayList<CongTy> getAllCty(String maloai) {
