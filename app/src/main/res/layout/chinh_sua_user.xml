@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".View_Models.QuanLyXe.ThemXe">
-
+    tools:context=".screen.manager_motobike.ThemXe">
 
     <TextView style="@style/title_edit_user" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgUserPicture"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/picture_img"
+        android:scaleType="centerCrop"
+        app:civ_border_color="@color/blue"
+        app:civ_border_width="5dp" />
+
+    <LinearLayout style="@style/linear_upload_img">
+
+        <ImageButton
+            android:id="@+id/capturePicture"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/capture_picture" />
+
+        <ImageButton
+            android:id="@+id/uploadPicture"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/upload_picture" />
+    </LinearLayout>
 
 
     <LinearLayout style="@style/linear_info_user">

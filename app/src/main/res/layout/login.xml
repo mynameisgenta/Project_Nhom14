@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
     android:orientation="vertical"
-    tools:context="com.example.qunltxe.View_Models.DangNhap.DangNhap">
+    tools:context="com.example.qunltxe.screen.login.DangNhap">
 
     <ImageView style="@style/img_login"></ImageView>
 
