@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".screen.manager_motobike.ThemXe">
+    tools:context=".screen.motobike.ThemXe">
 
     <TextView style="@style/title_edit_user" />
 

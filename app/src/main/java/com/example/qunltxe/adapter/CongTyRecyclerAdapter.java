@@ -18,8 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.qunltxe.R;
 import com.example.qunltxe.data_models.CongTy;
 import com.example.qunltxe.database.DBCongTy;
-import com.example.qunltxe.screen.companymanager.ChinhSuaCongTy;
-import com.example.qunltxe.screen.companymanager.DanhSachCty;
+import com.example.qunltxe.screen.company.ChinhSuaCongTy;
+import com.example.qunltxe.screen.company.DanhSachCty;
 
 import java.util.ArrayList;
 import java.util.List;

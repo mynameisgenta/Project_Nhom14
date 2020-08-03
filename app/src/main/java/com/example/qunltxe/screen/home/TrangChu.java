@@ -11,9 +11,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qunltxe.R;
-import com.example.qunltxe.screen.companymanager.DanhSachCty;
+import com.example.qunltxe.screen.company.DanhSachCty;
 import com.example.qunltxe.screen.login.DangNhap;
-import com.example.qunltxe.screen.manager_motobike.DanhSachXe;
+import com.example.qunltxe.screen.motobike.DanhSachXe;
+import com.example.qunltxe.screen.order.DanhSachDonHang;
 import com.example.qunltxe.screen.register.DanhSachTaiKhoan;
 
 public class TrangChu extends AppCompatActivity {
@@ -29,6 +30,16 @@ public class TrangChu extends AppCompatActivity {
 
 
     private void setEvent() {
+
+        btnDonDatHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TrangChu.this, DanhSachDonHang.class);
+                startActivity(intent);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            }
+        });
+
         btnQuanLyCty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

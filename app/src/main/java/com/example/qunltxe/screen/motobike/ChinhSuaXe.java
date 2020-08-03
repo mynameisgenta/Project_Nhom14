@@ -1,4 +1,4 @@
-package com.example.qunltxe.screen.manager_motobike;
+package com.example.qunltxe.screen.motobike;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -47,7 +47,6 @@ public class ChinhSuaXe extends AppCompatActivity {
         dataXE = dbXe.getAllXe(maxe);
         txtMaxe.setText(dataXE.get(0).getMaXe());
         txtMaLoai.setText(dataXE.get(0).getMaLoai());
-        System.out.printf("----------test" + dataXE.get(0).getMaLoai());
         txtTenXe.setText(dataXE.get(0).getTenXe());
         txtDungTich.setText(String.valueOf(dataXE.get(0).getDungTich()));
         txtSoLuong.setText(String.valueOf(dataXE.get(0).getSoLuong()));

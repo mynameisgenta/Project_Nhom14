@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".screen.companymanager.ChinhSuaCongTy">
+    tools:context=".screen.company.ChinhSuaCongTy">
 
     <TextView style="@style/title_edit_cty" />
 

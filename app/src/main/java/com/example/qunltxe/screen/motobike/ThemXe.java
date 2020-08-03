@@ -1,4 +1,4 @@
-package com.example.qunltxe.screen.manager_motobike;
+package com.example.qunltxe.screen.motobike;
 
 import android.content.DialogInterface;
 import android.content.Intent;

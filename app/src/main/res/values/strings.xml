@@ -1,37 +1,40 @@
 <resources>
     <string name="finger_text">Chạm vân tay để mở khóa</string>
     <string name="loading_text">Loading...</string>
-
     <string name="app_name">Quản lý đặt xe</string>
     <string name="title_add">Thêm xe</string>
+    <string name="title_add_ddh">Thêm đơn hàng</string>
     <string name="title_infomoto">Thêm xe</string>
     <string name="title_edit_xe">Cập nhật thông tin xe</string>
     <string name="title_edit_user">Cập nhật Tài khoản</string>
-
     <string name="mn_update">Cập nhật</string>
     <string name="mn_delete">Xóa</string>
     <string name="mn_add">Thêm</string>
     <string name="mn_save">Lưu</string>
     <string name="mn_logout">Thoát</string>
-
     <string name="tv_maxe">Mã xe</string>
     <string name="tv_tenxe">Tên xe</string>
     <string name="tv_dungtich">Dung tích</string>
     <string name="tv_soluong">Số lượng</string>
+    <string name="tv_soluongdat">Số lượng đặt</string>
     <string name="tv_maloai">Mã Loại</string>
     <string name="tv_dongia">Giá</string>
     <string name="tv_username">Tài khoản</string>
     <string name="tv_fullname">Họ tên</string>
     <string name="tv_password">Mật khẩu</string>
-
-
     <string name="hint_maxe">Nhập mã xe</string>
     <string name="hint_tenxe">Nhập tên xe</string>
     <string name="hint_dungtich">Nhập dung tích</string>
     <string name="hint_soluong">Nhập số lượng</string>
     <string name="hint_maloai">Nhập mã Loại</string>
     <string name="hint_dongia">Nhập giá xe</string>
-
+    <string name="hint_maddh">Nhập mã đơn đặt hàng</string>
+    <string name="lv_maddh">Mã đơn đặt hàng :</string>
+    <string name="lv_ngaydat">Ngày đặt hàng :</string>
+    <string name="tv_maddh">Mã đơn hàng</string>
+    <string name="hint_thanhtien">Thành tiền</string>
+    <string name="list_ddh">Danh sách đơn đặt hàng</string>
+    <string name="title_detail">Chi Tiết Đơn Đặt Hàng</string>
     <string name="btn_add">Thêm</string>
     <string name="btn_edit">Cập nhật</string>
     <string name="btn_update">Cập nhật</string>
@@ -42,13 +45,11 @@
     <string name="btn_dondathang">Đơn đặt hàng</string>
     <string name="btn_user">Quản lý tài khoản</string>
     <string name="btn_exit">Đăng xuất</string>
-
     <string name="remember_login">Ghi nhớ đăng nhập</string>
     <string name="login">Đăng nhập</string>
     <string name="register">Đăng ký</string>
     <string name="go_register">Bạn chưa có tài khoản? Tạo ngay</string>
     <string name="back_login">Đã có tài khoản? Về đăng nhập</string>
-
     <string name="hint_taikhoan">Tài khoản</string>
     <string name="hint_matkhau">Mật khẩu</string>
     <string name="hint_nhaptaikhoan">Nhập tài khoản</string>
@@ -56,20 +57,21 @@
     <string name="hint_nhaphoten">Nhập họ tên</string>
     <string name="list_taikhoan">Danh sách tài khoản</string>
     <string name="list_xe">Danh sách xe</string>
-
     <string name="hint_username">Nhập tài khoản</string>
     <string name="hint_fullname">Nhập họ tên</string>
     <string name="hint_password">Nhập mật khẩu</string>
     <string name="search">Tìm kiếm</string>
-
-    <!--String quản lý công ty-->
+    <string name="hint_ngaydat">Nhập ngày đặt</string>
+    <string name="tv_ngaydat">Ngày đặt</string>
+    <string name="tv_thanhtien">Thành tiền</string>
     <string name="qlcty">Quản lý công ty xe</string>
     <string name="qlxe">Quản lý xe</string>
     <string name="ddh">Đơn đặt hàng</string>
     <string name="thoat">Thoát</string>
     <string name="title_dscty">Danh sách công ty xe</string>
     <string name="title_add_cty">Thêm công ty xe</string>
-    <string name="title_edit">Cập nhật thông tin công ty</string>
+    <string name="title_edit_cty">Cập nhật thông tin công ty</string>
+    <string name="title_ddh">Thông tin đơn hàng</string>
     <string name="txt_maloai">Mã loại </string>
     <string name="txt_tenloai">Tên loại </string>
     <string name="txt_xuatxu">Xuất xứ </string>

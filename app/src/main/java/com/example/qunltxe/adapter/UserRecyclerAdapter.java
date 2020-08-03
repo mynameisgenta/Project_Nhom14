@@ -3,6 +3,8 @@ package com.example.qunltxe.adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +22,8 @@ import com.example.qunltxe.data_models.User;
 import com.example.qunltxe.database.DBUser;
 import com.example.qunltxe.screen.register.ChinhSuaTaiKhoan;
 import com.example.qunltxe.screen.register.DanhSachTaiKhoan;
-import com.example.qunltxe.util.AppUtil;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,8 +88,14 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
         });
 
         if (user.getImage() != null) {
-            holder.img_Profile.setImageBitmap(AppUtil.Companion.convertByteArrayToBitmap(user.getImage()));
+            holder.img_Profile.setImageBitmap(convertByteArrayToBitmap(user.getImage()));
         }
+    }
+
+    public Bitmap convertByteArrayToBitmap(byte[] byteArray) {
+        ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArray);
+        Bitmap bitmap = BitmapFactory.decodeStream(arrayInputStream);
+        return bitmap;
     }
 
     private void showDeleteUserDialog(final User user) {

@@ -1,4 +1,4 @@
-package com.example.qunltxe.screen.companymanager;
+package com.example.qunltxe.screen.company;
 
 import android.annotation.SuppressLint;
 import android.app.SearchManager;

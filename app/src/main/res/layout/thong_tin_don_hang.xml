@@ -6,17 +6,27 @@
     android:orientation="vertical"
     tools:context=".screen.motobike.ThemXe">
 
-    <TextView style="@style/title_add" />
+    <TextView style="@style/title_edit_ddh" />
 
     <LinearLayout style="@style/linear_info">
 
         <LinearLayout style="@style/linear_fill_info">
 
-            <TextView style="@style/txtMaloai" />
+            <TextView style="@style/txtMaddh" />
 
-            <Spinner
-                android:id="@+id/txtMaLoai"
-                style="@style/edit_maloai_spinner" />
+            <EditText
+                android:id="@+id/txtMaddh"
+                style="@style/edit_maddh_disable" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtNgaydat" />
+
+            <EditText
+                android:id="@+id/txtDungTich"
+                style="@style/edit_ngaydat_disable" />
 
         </LinearLayout>
 
@@ -26,7 +36,7 @@
 
             <EditText
                 android:id="@+id/txtMaXe"
-                style="@style/edit_maxe" />
+                style="@style/edit_maxe_disable" />
 
         </LinearLayout>
 
@@ -36,23 +46,13 @@
 
             <EditText
                 android:id="@+id/txtTenXe"
-                style="@style/edit_tenxe" />
+                style="@style/edit_tenxe_disable" />
 
         </LinearLayout>
 
         <LinearLayout style="@style/linear_fill_info">
 
-            <TextView style="@style/txtDungtich" />
-
-            <EditText
-                android:id="@+id/txtDungTich"
-                style="@style/edit_dungtich" />
-
-        </LinearLayout>
-
-        <LinearLayout style="@style/linear_fill_info">
-
-            <TextView style="@style/txtSoluong" />
+            <TextView style="@style/txtSoluongdat" />
 
             <EditText
                 android:id="@+id/txtSoLuong"
@@ -66,7 +66,16 @@
 
             <EditText
                 android:id="@+id/txtDonGia"
-                style="@style/edit_dongia" />
+                style="@style/edit_dongia_disable" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
+            <TextView style="@style/txtThanhtien" />
+
+            <EditText
+                android:id="@+id/txtThanhTien"
+                style="@style/edit_thanhtien" />
         </LinearLayout>
 
     </LinearLayout>
@@ -74,8 +83,8 @@
     <LinearLayout style="@style/linear_button">
 
         <Button
-            android:id="@+id/btnThem"
-            style="@style/btn_them"></Button>
+            android:id="@+id/btnUpdate"
+            style="@style/btn_update"></Button>
 
         <Button
             android:id="@+id/btnClear"

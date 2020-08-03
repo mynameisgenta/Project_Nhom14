@@ -1,4 +1,4 @@
-package com.example.qunltxe.screen.companymanager;
+package com.example.qunltxe.screen.company;
 
 import android.content.DialogInterface;
 import android.content.Intent;

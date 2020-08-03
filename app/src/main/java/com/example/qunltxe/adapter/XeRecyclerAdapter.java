@@ -18,8 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.qunltxe.R;
 import com.example.qunltxe.data_models.Xe;
 import com.example.qunltxe.database.DBXe;
-import com.example.qunltxe.screen.manager_motobike.ChinhSuaXe;
-import com.example.qunltxe.screen.manager_motobike.DanhSachXe;
+import com.example.qunltxe.screen.motobike.ChinhSuaXe;
+import com.example.qunltxe.screen.motobike.DanhSachXe;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,11 @@
 package com.example.qunltxe.screen.register;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -18,13 +21,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.qunltxe.R;
 import com.example.qunltxe.data_models.User;
 import com.example.qunltxe.database.DBUser;
 import com.example.qunltxe.screen.home.TrangChu;
-import com.example.qunltxe.util.AppUtil;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -100,6 +105,12 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
         capturePicture = findViewById(R.id.capturePicture);
     }
 
+    public Bitmap convertByteArrayToBitmap(byte[] byteArray) {
+        ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArray);
+        Bitmap bitmap = BitmapFactory.decodeStream(arrayInputStream);
+        return bitmap;
+    }
+
     private void initData() {
         String username = getIntent().getExtras().getString("user_name");
         DBUser dbUser = new DBUser(getApplicationContext());
@@ -109,7 +120,7 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
         txtPassword.setText(currentUser.getPassword());
         byteArr = currentUser.getImage();
         if (byteArr != null) {
-            imgPicture.setImageBitmap(AppUtil.Companion.convertByteArrayToBitmap(byteArr));
+            imgPicture.setImageBitmap(convertByteArrayToBitmap(byteArr));
         }
     }
 
@@ -120,17 +131,42 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
         currentUser.setImage(byteArr);
     }
 
-    // chọn từ thư viện
-    private void choosePicture() {
-        Intent pickPhoto = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(pickPhoto, 200);
+    // yêu cầu quyền truy cập
+    protected void makeRequest() {
+        ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.CAMERA
+                , Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE
+                , Manifest.permission.INTERNET}, 1);
+    }
+
+    protected void getPermission() {
+        int permission_camera = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA);
+        int permission_internet = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.INTERNET);
+        int permission_write_storage = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permission_read_storage = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE);
+        if (permission_camera != PackageManager.PERMISSION_GRANTED || permission_internet != PackageManager.PERMISSION_GRANTED
+                || permission_write_storage != PackageManager.PERMISSION_GRANTED || permission_read_storage != PackageManager.PERMISSION_GRANTED) {
+            makeRequest();
+        }
     }
 
     // chụp từ camera
     private void capturePicture() {
+        getPermission();
         Intent cInt = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cInt, 100);
+    }
+
+    // chọn từ thư viện
+    private void choosePicture() {
+        getPermission();
+        Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(pickPhoto, 200);
     }
 
     // xử lí ảnh
