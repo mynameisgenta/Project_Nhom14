@@ -55,26 +55,12 @@ public class DBDonDatHang extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_MA_DON_HANG, donHang.getMaDonHang());
         values.put(COLUMN_NGAY_DAT, donHang.getNgayDat());
-        values.put(COLUMN_MA_XE, donHang.getSoLuongDat());
-        values.put(COLUMN_TEN_XE, donHang.getMaDonHang());
-        values.put(COLUMN_DON_GIA, donHang.getNgayDat());
+        values.put(COLUMN_MA_XE, donHang.getMaXe());
+        values.put(COLUMN_TEN_XE, donHang.getTenXe());
+        values.put(COLUMN_DON_GIA, donHang.getGiaXe());
         values.put(COLUMN_SOLUONG_DAT, donHang.getSoLuongDat());
-        values.put(COLUMN_TONG_TIEN, donHang.getSoLuongDat());
+        values.put(COLUMN_TONG_TIEN, donHang.getTongTien());
         db.insert(TABLE_DON_HANG, null, values);
-        db.close();
-    }
-
-    public void updateDonHang(DonHang donHang) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_MA_DON_HANG, donHang.getMaDonHang());
-        values.put(COLUMN_NGAY_DAT, donHang.getNgayDat());
-        values.put(COLUMN_MA_XE, donHang.getSoLuongDat());
-        values.put(COLUMN_TEN_XE, donHang.getMaDonHang());
-        values.put(COLUMN_DON_GIA, donHang.getNgayDat());
-        values.put(COLUMN_SOLUONG_DAT, donHang.getSoLuongDat());
-        values.put(COLUMN_TONG_TIEN, donHang.getSoLuongDat());
-        db.update(TABLE_DON_HANG, values, COLUMN_MA_DON_HANG + " = ?", new String[]{String.valueOf(donHang.getMaDonHang())});
         db.close();
     }
 
@@ -110,17 +96,15 @@ public class DBDonDatHang extends SQLiteOpenHelper {
         return data;
     }
 
-    public ArrayList<DonHang> getALLDonHang(String madonhang) {
-        ArrayList<DonHang> data = new ArrayList<>();
+    public DonHang getDonHang(String madonhang) {
+        DonHang donHang = new DonHang();
         String sql = "SELECT * FROM DonHang WHERE madonhang = '" + madonhang + "'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         cursor.moveToFirst();
-
         try {
             cursor.moveToFirst();
             do {
-                DonHang donHang = new DonHang();
                 donHang.setMaDonHang(cursor.getString(0));
                 donHang.setNgayDat(cursor.getString(1));
                 donHang.setMaXe(cursor.getString(2));
@@ -128,13 +112,11 @@ public class DBDonDatHang extends SQLiteOpenHelper {
                 donHang.setGiaXe(cursor.getInt(4));
                 donHang.setSoLuongDat(cursor.getInt(5));
                 donHang.setTongTien(cursor.getInt(6));
-                data.add(donHang);
             }
             while (cursor.moveToNext());
         } catch (Exception ex) {
-
         }
-        return data;
+        return donHang;
     }
 
     public boolean checkCodeDonHang(String madonhang) {
@@ -157,4 +139,5 @@ public class DBDonDatHang extends SQLiteOpenHelper {
         db.close();
         return cursorCount > 0;
     }
+
 }

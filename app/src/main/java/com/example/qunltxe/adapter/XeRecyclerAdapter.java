@@ -104,7 +104,7 @@ public class XeRecyclerAdapter extends RecyclerView.Adapter<XeRecyclerAdapter.Xe
                 } else {
                     List<Xe> filteredList = new ArrayList<>();
                     for (Xe row : listXe) {
-                        if (row.getMaXe().toLowerCase().contains(charString.toLowerCase())) {
+                        if (row.getMaXe().toLowerCase().contains(charString.toLowerCase()) || row.getTenXe().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row);
                         }
                     }

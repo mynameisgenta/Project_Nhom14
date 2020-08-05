@@ -6,7 +6,18 @@ public class Xe {
     private String TenXe;
     private int DungTich;
     private int SoLuong;
-    private String DonGia;
+    private int DonGia;
+
+    public Xe(String maXe, String tenXe, int soLuong, int donGia) {
+        MaXe = maXe;
+        TenXe = tenXe;
+        SoLuong = soLuong;
+        DonGia = donGia;
+    }
+
+    public Xe() {
+
+    }
 
     public String getMaLoai() {
         return MaLoai;
@@ -48,11 +59,11 @@ public class Xe {
         SoLuong = soLuong;
     }
 
-    public String getDonGia() {
+    public int getDonGia() {
         return DonGia;
     }
 
-    public void setDonGia(String donGia) {
+    public void setDonGia(int donGia) {
         DonGia = donGia;
     }
 }

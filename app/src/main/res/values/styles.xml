@@ -109,7 +109,7 @@
     <style name="linear_info">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0dp</item>
-        <item name="android:layout_weight">5</item>
+        <item name="android:layout_weight">7</item>
         <item name="android:orientation">vertical</item>
         <item name="android:layout_margin">20dp</item>
     </style>
@@ -178,6 +178,15 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:text">@string/tv_soluong</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Text số lượng xe  -->
+    <style name="txtSoluongHienTai">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/soLuongHienTai</item>
         <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
@@ -270,6 +279,7 @@
         <item name="android:inputType">text</item>
         <item name="android:drawableLeft">@drawable/type</item>
         <item name="android:drawablePadding">1dp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- EditText mã loại disable -->
@@ -313,6 +323,18 @@
         <item name="android:drawablePadding">1dp</item>
     </style>
 
+    <style name="edit_soluong">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:hint">@string/hint_soluong</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:background">@drawable/state_textbox_white</item>
+        <item name="android:inputType">text</item>
+        <item name="android:drawableLeft">@drawable/count_moto</item>
+        <item name="android:drawablePadding">1dp</item>
+    </style>
+
     <!-- EditText tên xe  -->
     <style name="edit_tenxe">
         <item name="android:layout_width">match_parent</item>
@@ -338,6 +360,7 @@
         <item name="android:drawableLeft">@drawable/name_moto</item>
         <item name="android:drawablePadding">1dp</item>
         <item name="android:enabled">false</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- EditText dung tích xe  -->
@@ -354,7 +377,21 @@
     </style>
 
     <!-- EditText số lượng xe  -->
-    <style name="edit_soluong">
+    <style name="edit_soluongdat_disable">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:hint">@string/hint_soluong</item>
+        <item name="android:inputType">number</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:background">@drawable/state_textbox_white</item>
+        <item name="android:drawableLeft">@drawable/count_moto</item>
+        <item name="android:drawablePadding">1dp</item>
+        <item name="android:enabled">false</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="edit_soluongdat">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
@@ -381,7 +418,7 @@
     <!-- EditText mã loại xe  -->
     <style name="edit_maloai_spinner">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:hint">@string/hint_maloai</item>
         <item name="android:imeOptions">actionNext</item>
         <item name="android:background">@drawable/spinner_bg</item>
@@ -390,7 +427,6 @@
         <item name="android:drawablePadding">1dp</item>
     </style>
 
-    <!-- EditText mã loại xe  -->
     <style name="edit_dongia">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -415,6 +451,7 @@
         <item name="android:drawablePadding">1dp</item>
         <item name="android:inputType">number</item>
         <item name="android:enabled">false</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="edit_fullname">
@@ -449,6 +486,14 @@
         <item name="android:layout_weight">1</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_margin">10dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="linear_button_deletedh">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_margin">20dp</item>
         <item name="android:gravity">center</item>
     </style>
 
@@ -506,6 +551,16 @@
         <item name="android:textSize">15dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginLeft">5dp</item>
+    </style>
+
+    <style name="btn_xoa_dh">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/change_color_btn</item>
+        <item name="android:text">@string/xoadonhang</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Button clear -->
@@ -640,6 +695,15 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <!-- img edit  -->
+    <style name="img_edit_donhang">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:background">@drawable/ic_edit</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginRight">25dp</item>
+    </style>
+
     <!-- img delete  -->
     <style name="img_delete">
         <item name="android:layout_width">30dp</item>
@@ -647,7 +711,7 @@
         <item name="android:background">@drawable/ic_delete</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_marginLeft">5dp</item>
-        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginRight">25dp</item>
 
     </style>
 
@@ -976,12 +1040,12 @@
     </style>
 
     <!--Show danh sách công ty-->
-    <style name="linear_infor_cty">
+    <style name="linear_infor">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:layout_weight">12</item>
-        <item name="android:padding">15dp</item>
+        <item name="android:padding">10dp</item>
     </style>
 
     <style name="linear_tv">
@@ -1233,6 +1297,7 @@
         <item name="android:drawableLeft">@drawable/type</item>
         <item name="android:drawablePadding">1dp</item>
         <item name="android:enabled">false</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- EditText ngày đặt  -->
@@ -1241,11 +1306,12 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
         <item name="android:hint">@string/hint_ngaydat</item>
-        <item name="android:inputType">number</item>
+        <item name="android:inputType">datetime</item>
         <item name="android:imeOptions">actionNext</item>
         <item name="android:background">@drawable/state_textbox_white</item>
         <item name="android:drawableLeft">@drawable/calendar</item>
         <item name="android:drawablePadding">1dp</item>
+        <item name="android:enabled">false</item>
     </style>
 
     <!-- EditText ngày đặt  -->
@@ -1260,6 +1326,7 @@
         <item name="android:drawableLeft">@drawable/calendar</item>
         <item name="android:drawablePadding">1dp</item>
         <item name="android:enabled">false</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Text tính thành tiền -->
@@ -1283,6 +1350,7 @@
         <item name="android:drawableLeft">@drawable/money</item>
         <item name="android:drawablePadding">1dp</item>
         <item name="android:enabled">false</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Tiêu đề add ddh -->
@@ -1332,5 +1400,319 @@
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <!--ĐƠN ĐẶT HÀNG RECYCLERVIEW-->
+    <style name="tv_title_maddh">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/tv_maddh</item>
+    </style>
+
+    <style name="tv_content_maddh">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/tv_maddh</item>
+    </style>
+
+    <style name="tv_title_ngaydat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/tv_ngaydat</item>
+    </style>
+
+    <style name="tv_title_SLdatxe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/soluongxedat</item>
+    </style>
+
+    <style name="tv_content_ngaydat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/tv_ngaydat</item>
+    </style>
+
+
+    <style name="tv_content_slxedat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/soluongxedat</item>
+    </style>
+
+    <!--End-->
+
+    <!--QUẢN LÝ XE RECYCLERVIEW-->
+    <style name="tv_title_maloai2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/tv_maloai</item>
+    </style>
+
+    <style name="tv_content_maloai2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/tv_maloai</item>
+    </style>
+
+    <style name="tv_title_maxe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/tv_maxe</item>
+    </style>
+
+    <style name="tv_content_maxe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/tv_maxe</item>
+    </style>
+
+    <style name="tv_title_tenxe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/tv_tenxe</item>
+    </style>
+
+    <style name="tv_content_tenxe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/tv_tenxe</item>
+    </style>
+
+    <style name="tv_title_dungtich">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/tv_dungtich</item>
+    </style>
+
+    <style name="tv_content_dungtich">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/tv_dungtich</item>
+    </style>
+
+    <style name="tv_title_soluong">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/tv_soluong</item>
+    </style>
+
+    <style name="tv_content_soluong">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/tv_soluong</item>
+    </style>
+
+    <style name="tv_title_dongia">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/tv_dongia</item>
+    </style>
+
+    <style name="tv_content_dongia">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/tv_dongia</item>
+    </style>
+
+    <style name="CircleImageView">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:background">@drawable/picture_img</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="List_CircleImageView">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:background">@drawable/picture_img</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="CapturePicture">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/capture_picture</item>
+    </style>
+
+    <style name="ChoosePicture">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/upload_picture</item>
+    </style>
+
+    <style name="linear_cty_recyclerview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="linear_user_recyclerview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="linear_xe_recyclerview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="linear_dh_recyclerview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="recyclerViewDonHang">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="recyclerViewUsers">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="recyclerViewXe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+    <style name="linear_user">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">8</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="linear_button_edit">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="textview_username">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:text">@string/tv_username</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="textview_fullname">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:text">@string/tv_fullname</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="textview_password">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:text">@string/tv_password</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="textview_username1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:text">@string/tv_username</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="textview_fullname1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:text">@string/tv_fullname</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="textview_password1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:text">@string/tv_password</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+
 
 </resources>

@@ -9,10 +9,8 @@
     <LinearLayout style="@style/linear_recycleview">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewXe"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp" />
+            android:id="@+id/recyclerViewDonHang"
+            style="@style/recyclerViewDonHang" />
 
     </LinearLayout>
 

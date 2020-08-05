@@ -72,9 +72,17 @@ public class DangNhap extends AppCompatActivity {
         ib_finger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DangNhap.this, VanTay.class);
-                startActivity(intent);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                if (dbUser.getCountUser() == 0) {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(DangNhap.this);
+                    alert.setTitle("Thông báo");
+                    alert.setMessage("Bạn cần đăng nhập trước khi dùng vân tay");
+                    alert.setPositiveButton("OK", null);
+                    alert.show();
+                } else {
+                    Intent intent = new Intent(DangNhap.this, VanTay.class);
+                    startActivity(intent);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                }
             }
         });
 

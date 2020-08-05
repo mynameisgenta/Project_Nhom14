@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
 import com.example.qunltxe.data_models.User;
 
@@ -71,31 +69,12 @@ public class DBUser extends SQLiteOpenHelper {
         db.close();
     }
 
-
-    // get ảnh từ database
-    public Bitmap getImageAvatar(int i) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String qu = "SELECT image  FROM user where feedid=" + i;
-        Cursor cur = db.rawQuery(qu, null);
-
-        if (cur.moveToFirst()) {
-            byte[] imgByte = cur.getBlob(0);
-            cur.close();
-            return BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
-        }
-        if (cur != null && !cur.isClosed()) {
-            cur.close();
-        }
-
-        return null;
-    }
-
     public ArrayList<User> getAllUser() {
         ArrayList<User> data = new ArrayList<>();
         String sql = "SELECT * FROM user";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
-
+        int cursorCount = cursor.getCount();
         cursor.moveToFirst();
         do {
             User user = new User();
@@ -130,6 +109,13 @@ public class DBUser extends SQLiteOpenHelper {
         db.delete(TABLE_USER, COLUMN_USER_NAME + " = ?",
                 new String[]{String.valueOf(user.getUsername())});
         db.close();
+    }
+
+    public int getCountUser() {
+        String sql = "SELECT * from user";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        return cursor.getCount();
     }
 
     public boolean checkUserRegister(String username) {

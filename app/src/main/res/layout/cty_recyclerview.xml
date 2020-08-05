@@ -6,12 +6,9 @@
     android:layout_margin="10dp"
     card_view:cardCornerRadius="5dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <LinearLayout style="@style/linear_cty_recyclerview">
 
-        <LinearLayout style="@style/linear_infor_cty">
+        <LinearLayout style="@style/linear_infor">
 
             <LinearLayout style="@style/linear_tv">
 

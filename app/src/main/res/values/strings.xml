@@ -71,7 +71,7 @@
     <string name="title_dscty">Danh sách công ty xe</string>
     <string name="title_add_cty">Thêm công ty xe</string>
     <string name="title_edit_cty">Cập nhật thông tin công ty</string>
-    <string name="title_ddh">Thông tin đơn hàng</string>
+    <string name="title_ddh">Chi tiết đơn hàng</string>
     <string name="txt_maloai">Mã loại </string>
     <string name="txt_tenloai">Tên loại </string>
     <string name="txt_xuatxu">Xuất xứ </string>
@@ -79,5 +79,8 @@
     <string name="ed_nhaptenloai">Nhập tên loại</string>
     <string name="ed_nhapxuatxu">Nhập xuất xứ</string>
     <string name="uploadPicture">Upload</string>
+    <string name="soLuongHienTai">Số lượng xe đang có</string>
+    <string name="xoadonhang">Xóa đơn hàng</string>
+    <string name="soluongxedat">Số lượng xe</string>
 
 </resources>

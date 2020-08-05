@@ -90,7 +90,7 @@ public class ChinhSuaXe extends AppCompatActivity {
         xe.setTenXe(txtTenXe.getText().toString());
         xe.setDungTich(Integer.parseInt(txtDungTich.getText().toString()));
         xe.setSoLuong(Integer.parseInt(txtSoLuong.getText().toString()));
-        xe.setDonGia(txtDonGia.getText().toString());
+        xe.setDonGia(Integer.parseInt(txtDonGia.getText().toString()));
         return xe;
     }
 

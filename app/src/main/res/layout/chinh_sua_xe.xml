@@ -57,7 +57,7 @@
 
             <EditText
                 android:id="@+id/txtSoLuong"
-                style="@style/edit_soluong_disable" />
+                style="@style/edit_soluong" />
 
         </LinearLayout>
 

@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.qunltxe.data_models.Xe;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBXe extends SQLiteOpenHelper {
 
@@ -76,10 +77,19 @@ public class DBXe extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void updateSoLuongXe(Xe xe) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_MA_XE, xe.getMaXe());
+        values.put(COLUMN_SOLUONG_XE, xe.getSoLuong());
+        db.update(TABLE_XE, values, COLUMN_MA_XE + " = ?",
+                new String[]{String.valueOf(xe.getMaXe())});
+        db.close();
+    }
+
     public void deleteMoto(Xe xe) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_XE, COLUMN_MA_XE + " = ?",
-                new String[]{String.valueOf(xe.getMaXe())});
+        db.delete(TABLE_XE, COLUMN_MA_XE + " = ?", new String[]{String.valueOf(xe.getMaXe())});
         db.close();
     }
 
@@ -99,7 +109,7 @@ public class DBXe extends SQLiteOpenHelper {
                 xe.setTenXe(cursor.getString(2));
                 xe.setDungTich(cursor.getInt(3));
                 xe.setSoLuong(cursor.getInt(4));
-                xe.setDonGia(cursor.getString(5));
+                xe.setDonGia(cursor.getInt(5));
                 data.add(xe);
             }
             while (cursor.moveToNext());
@@ -124,7 +134,7 @@ public class DBXe extends SQLiteOpenHelper {
                 xe.setTenXe(cursor.getString(2));
                 xe.setDungTich(cursor.getInt(3));
                 xe.setSoLuong(cursor.getInt(4));
-                xe.setDonGia(cursor.getString(5));
+                xe.setDonGia(cursor.getInt(5));
                 data.add(xe);
             }
             while (cursor.moveToNext());
@@ -153,5 +163,37 @@ public class DBXe extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return cursorCount > 0;
+    }
+
+    public List<Xe> getInfoXe() {
+        List<Xe> data = new ArrayList<Xe>();
+        String selectQuery = "SELECT * FROM " + TABLE_XE;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                String maxe = cursor.getString(cursor.getColumnIndexOrThrow("maxe"));
+                String tenxe = cursor.getString(cursor.getColumnIndexOrThrow("tenxe"));
+                Integer soluong = cursor.getInt(cursor.getColumnIndexOrThrow("soluong"));
+                Integer dongia = cursor.getInt(cursor.getColumnIndexOrThrow("dongia"));
+                data.add(new Xe(maxe, tenxe, soluong, dongia));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return data;
+    }
+
+    public Integer getSoLuongByMaXe(String maxe) {
+        Integer soLuongXe = 0;
+        String sql = "SELECT soluong FROM Xe WHERE maxe ='" + maxe + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        do {
+            soLuongXe = cursor.getInt(0);
+        }
+        while (cursor.moveToNext());
+        return soLuongXe;
     }
 }

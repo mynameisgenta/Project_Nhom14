@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".screen.motobike.ThemXe">
+    tools:context=".screen.order.ThemDonHang">
 
     <TextView style="@style/title_add_ddh" />
 
@@ -35,7 +35,7 @@
             <TextView style="@style/txtMaxe" />
 
             <Spinner
-                android:id="@+id/txtMaXe"
+                android:id="@+id/spinnerMaXe"
                 style="@style/edit_maloai_spinner" />
 
         </LinearLayout>
@@ -52,11 +52,21 @@
 
         <LinearLayout style="@style/linear_fill_info">
 
+            <TextView style="@style/txtSoluongHienTai" />
+
+            <EditText
+                android:id="@+id/txtsoLuongHienTai"
+                style="@style/edit_soluong_disable" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_fill_info">
+
             <TextView style="@style/txtSoluongdat" />
 
             <EditText
                 android:id="@+id/txtSoLuong"
-                style="@style/edit_soluong" />
+                style="@style/edit_soluongdat" />
 
         </LinearLayout>
 

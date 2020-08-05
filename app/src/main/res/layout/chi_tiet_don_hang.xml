@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".screen.motobike.ThemXe">
+    tools:context=".screen.order.ChiTietDonHang">
 
     <TextView style="@style/title_edit_ddh" />
 
@@ -25,7 +25,7 @@
             <TextView style="@style/txtNgaydat" />
 
             <EditText
-                android:id="@+id/txtDungTich"
+                android:id="@+id/txtNgayDat"
                 style="@style/edit_ngaydat_disable" />
 
         </LinearLayout>
@@ -56,7 +56,7 @@
 
             <EditText
                 android:id="@+id/txtSoLuong"
-                style="@style/edit_soluong" />
+                style="@style/edit_soluongdat_disable" />
 
         </LinearLayout>
 
@@ -77,18 +77,6 @@
                 android:id="@+id/txtThanhTien"
                 style="@style/edit_thanhtien" />
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout style="@style/linear_button">
-
-        <Button
-            android:id="@+id/btnUpdate"
-            style="@style/btn_update"></Button>
-
-        <Button
-            android:id="@+id/btnClear"
-            style="@style/btn_clear"></Button>
 
     </LinearLayout>
 

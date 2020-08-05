@@ -88,10 +88,8 @@ public class ThemXe extends AppCompatActivity {
     private void loadSpinnerData() {
         dbCongTy = new DBCongTy(getApplicationContext());
         List<String> data = dbCongTy.getALLMaLoai();
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, data);
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         txtMaLoai.setAdapter(dataAdapter);
     }
 
@@ -113,7 +111,7 @@ public class ThemXe extends AppCompatActivity {
             xe.setTenXe(txtTenXe.getText().toString().trim());
             xe.setDungTich(Integer.parseInt(txtDungTich.getText().toString().trim()));
             xe.setSoLuong(Integer.parseInt(txtSoLuong.getText().toString().trim()));
-            xe.setDonGia(txtDonGia.getText().toString().trim());
+            xe.setDonGia(Integer.parseInt(txtDonGia.getText().toString().trim()));
             dbXe.addMoto(xe);
 
             AlertDialog.Builder alert = new AlertDialog.Builder(ThemXe.this);

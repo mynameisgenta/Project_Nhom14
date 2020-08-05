@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_logolauncher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screen.order.ChinhSuaDonHang"></activity>
+        <activity android:name=".screen.order.ChiTietDonHang"></activity>
         <activity android:name=".screen.order.DanhSachDonHang" />
         <activity android:name=".screen.order.ThemDonHang" />
         <activity android:name=".adapter.DonHangRecyclerAdapter" />

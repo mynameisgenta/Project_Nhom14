@@ -99,7 +99,7 @@ public class CongTyRecyclerAdapter extends RecyclerView.Adapter<CongTyRecyclerAd
                 } else {
                     List<CongTy> filteredList = new ArrayList<>();
                     for (CongTy row : listCty) {
-                        if (row.getMaLoai().toLowerCase().contains(charString.toLowerCase())) {
+                        if (row.getMaLoai().toLowerCase().contains(charString.toLowerCase()) || row.getTenLoai().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row);
                         }
                     }
