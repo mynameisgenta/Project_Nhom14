@@ -49,6 +49,17 @@ public class DanhSachXe extends AppCompatActivity {
         img_add = findViewById(R.id.img_add);
     }
 
+    private void giaoDienDanhSach() {
+        listXe = new ArrayList<>();
+        xeRecyclerAdapter = new XeRecyclerAdapter(this, listXe);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerViewXe.setLayoutManager(mLayoutManager);
+        recyclerViewXe.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewXe.setHasFixedSize(true);
+        recyclerViewXe.setAdapter(xeRecyclerAdapter);
+        dbXe = new DBXe(this);
+    }
+
     private void setEvent() {
 
         img_add.setOnClickListener(new View.OnClickListener() {
@@ -60,14 +71,7 @@ public class DanhSachXe extends AppCompatActivity {
             }
         });
 
-        listXe = new ArrayList<>();
-        xeRecyclerAdapter = new XeRecyclerAdapter(this, listXe);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewXe.setLayoutManager(mLayoutManager);
-        recyclerViewXe.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewXe.setHasFixedSize(true);
-        recyclerViewXe.setAdapter(xeRecyclerAdapter);
-        dbXe = new DBXe(this);
+        giaoDienDanhSach();
         UpdateData();
     }
 
@@ -77,7 +81,7 @@ public class DanhSachXe extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... params) {
                 listXe.clear();
-                listXe.addAll(dbXe.getAllXe());
+                listXe.addAll(dbXe.layDuLieuXe());
 
                 return null;
             }

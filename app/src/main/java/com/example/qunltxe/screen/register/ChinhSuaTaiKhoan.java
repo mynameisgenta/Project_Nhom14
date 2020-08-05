@@ -54,16 +54,16 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chinh_sua_user);
         dbUser = new DBUser(this);
-        initViews();
-        initData();
-        initListeners();
+        setControl();
+        layDuLieuTaiKhoan();
+        setEvent();
     }
 
-    private void initListeners() {
+    private void setEvent() {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                inputUpdate();
+                capNhatTaiKhoan();
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {
@@ -82,19 +82,19 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
         uploadPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                choosePicture();
+                chonAnhThuVien();
             }
         });
 
         capturePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                capturePicture();
+                chupHinhCamera();
             }
         });
     }
 
-    private void initViews() {
+    private void setControl() {
         txtUsername = findViewById(R.id.txtUsername);
         txtFullname = findViewById(R.id.txtFullname);
         txtPassword = findViewById(R.id.txtPassword);
@@ -111,10 +111,10 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
         return bitmap;
     }
 
-    private void initData() {
+    private void layDuLieuTaiKhoan() {
         String username = getIntent().getExtras().getString("user_name");
         DBUser dbUser = new DBUser(getApplicationContext());
-        currentUser = dbUser.getUserByUserName(username);
+        currentUser = dbUser.kiemTraTaiKhoan(username);
         txtUsername.setText(currentUser.getUsername());
         txtFullname.setText(currentUser.getFullname());
         txtPassword.setText(currentUser.getPassword());
@@ -124,22 +124,21 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
         }
     }
 
-    public void updateCurrentUser() {
+    public void thietLapTaiKhoan() {
         currentUser.setUsername(txtUsername.getText().toString());
         currentUser.setFullname(txtFullname.getText().toString());
         currentUser.setPassword(txtPassword.getText().toString());
         currentUser.setImage(byteArr);
     }
 
-    // yêu cầu quyền truy cập
-    protected void makeRequest() {
+    protected void yeuCauQuyenTruyCap() {
         ActivityCompat.requestPermissions(this, new String[]{
                 Manifest.permission.CAMERA
                 , Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE
                 , Manifest.permission.INTERNET}, 1);
     }
 
-    protected void getPermission() {
+    protected void layQuyenTruyCap() {
         int permission_camera = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA);
         int permission_internet = ContextCompat.checkSelfPermission(this,
@@ -150,26 +149,23 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
                 Manifest.permission.READ_EXTERNAL_STORAGE);
         if (permission_camera != PackageManager.PERMISSION_GRANTED || permission_internet != PackageManager.PERMISSION_GRANTED
                 || permission_write_storage != PackageManager.PERMISSION_GRANTED || permission_read_storage != PackageManager.PERMISSION_GRANTED) {
-            makeRequest();
+            yeuCauQuyenTruyCap();
         }
     }
 
-    // chụp từ camera
-    private void capturePicture() {
-        getPermission();
+    private void chupHinhCamera() {
+        layQuyenTruyCap();
         Intent cInt = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cInt, 100);
     }
 
-    // chọn từ thư viện
-    private void choosePicture() {
-        getPermission();
+    private void chonAnhThuVien() {
+        layQuyenTruyCap();
         Intent pickPhoto = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(pickPhoto, 200);
     }
 
-    // xử lí ảnh
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100 && resultCode == RESULT_OK) {
@@ -192,14 +188,14 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
         }
     }
 
-    public void inputUpdate() {
+    public void capNhatTaiKhoan() {
         if (txtFullname.getText().toString().isEmpty()) {
             txtFullname.setError("Bạn chưa nhập họ tên");
         } else if (txtPassword.getText().toString().isEmpty()) {
             txtPassword.setError("Bạn chưa nhập mật khẩu");
         } else {
-            updateCurrentUser();
-            dbUser.updateUser(currentUser);
+            thietLapTaiKhoan();
+            dbUser.capnhatTaiKhoan(currentUser);
             AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaTaiKhoan.this);
             alert.setTitle("Thông báo");
             alert.setMessage("Cập nhật thông tin tài khoản thành công");
@@ -223,7 +219,7 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
                 break;
 
             case R.id.menuItemUpdate:
-                checkListUser();
+                danhSachTaiKhoan();
                 break;
 
 
@@ -255,7 +251,7 @@ public class ChinhSuaTaiKhoan extends AppCompatActivity {
                 }).show();
     }
 
-    public void checkListUser() {
+    public void danhSachTaiKhoan() {
         Intent intent = new Intent(this, DanhSachTaiKhoan.class);
         startActivity(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

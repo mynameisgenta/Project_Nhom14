@@ -42,17 +42,21 @@ public class ChinhSuaCongTy extends AppCompatActivity {
         return congTy;
     }
 
-    private void setEvent() {
+    private void layDuLieuCongTy() {
         String maloai = getIntent().getExtras().getString("maloai");
         DBCongTy dbCongTy = new DBCongTy(this);
-        dataCTY = dbCongTy.getAllCty(maloai);
+        dataCTY = dbCongTy.layDuLieuCongTy(maloai);
         ed_maloai.setText(dataCTY.get(0).getMaLoai());
         ed_tenloai.setText(dataCTY.get(0).getTenLoai());
         ed_xuatxu.setText(dataCTY.get(0).getXuatXu());
+    }
+
+    private void setEvent() {
+        layDuLieuCongTy();
         btn_sua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputUpdate();
+                capNhat();
             }
         });
 
@@ -66,7 +70,7 @@ public class ChinhSuaCongTy extends AppCompatActivity {
         });
     }
 
-    public void InputUpdate() {
+    public void capNhat() {
         if (ed_maloai.getText().toString().isEmpty()) {
             ed_maloai.setError("Bạn chưa nhập mã loại");
         } else if (ed_tenloai.getText().toString().isEmpty()) {
@@ -76,7 +80,7 @@ public class ChinhSuaCongTy extends AppCompatActivity {
         } else {
             DBCongTy dbCongTy = new DBCongTy(getApplicationContext());
             CongTy congTy = getCongTy();
-            dbCongTy.updateCongty(congTy);
+            dbCongTy.capnhatCongTy(congTy);
             AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaCongTy.this);
             alert.setTitle("Thông báo");
             alert.setMessage("Cập nhật thông tin thành công");
@@ -100,7 +104,7 @@ public class ChinhSuaCongTy extends AppCompatActivity {
                 break;
 
             case R.id.menuItemUpdate:
-                checkListCongTy();
+                danhSachCongTy();
                 break;
 
 
@@ -133,7 +137,7 @@ public class ChinhSuaCongTy extends AppCompatActivity {
                 }).show();
     }
 
-    public void checkListCongTy() {
+    public void danhSachCongTy() {
         Intent intent = new Intent(this, DanhSachCty.class);
         startActivity(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

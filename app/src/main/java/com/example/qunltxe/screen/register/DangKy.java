@@ -29,7 +29,7 @@ public class DangKy extends AppCompatActivity {
         setContentView(R.layout.register);
         setControl();
         setEvent();
-        CreateData();
+        khoiTaoData();
     }
 
     public void setEvent() {
@@ -45,7 +45,7 @@ public class DangKy extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkInputRegister();
+                kiemTraDangKy();
             }
         });
     }
@@ -58,12 +58,19 @@ public class DangKy extends AppCompatActivity {
         register = findViewById(R.id.btn_register);
     }
 
-    private void CreateData() {
+    private void khoiTaoData() {
         dbUser = new DBUser(DangKy.this);
         user = new User();
     }
 
-    private void checkInputRegister() {
+    private void themTaiKhoan() {
+        user.setUsername(reg_username.getText().toString().trim());
+        user.setFullname(reg_fullname.getText().toString().trim());
+        user.setPassword(reg_password.getText().toString().trim());
+        dbUser.themTaiKhoan(user);
+    }
+
+    private void kiemTraDangKy() {
 
         if (reg_username.getText().toString().isEmpty()) {
             reg_username.setError("Bạn chưa nhập tài khoản");
@@ -73,11 +80,8 @@ public class DangKy extends AppCompatActivity {
             reg_password.setError("Bạn chưa nhập mật khẩu");
         } else if (reg_password.getText().toString().length() < 6) {
             reg_password.setError("Mật khẩu phải có ít nhất 6 kí tự");
-        } else if (!dbUser.checkUserRegister(reg_username.getText().toString().trim())) {
-            user.setUsername(reg_username.getText().toString().trim());
-            user.setFullname(reg_fullname.getText().toString().trim());
-            user.setPassword(reg_password.getText().toString().trim());
-            dbUser.addUser(user);
+        } else if (!dbUser.kiemTraDangKy(reg_username.getText().toString().trim())) {
+            themTaiKhoan();
             AlertDialog.Builder alert = new AlertDialog.Builder(DangKy.this);
             alert.setTitle("Thông báo");
             alert.setMessage("Đăng ký thành công");

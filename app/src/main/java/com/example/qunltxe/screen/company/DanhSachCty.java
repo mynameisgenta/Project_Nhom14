@@ -49,6 +49,18 @@ public class DanhSachCty extends AppCompatActivity {
         img_add = findViewById(R.id.img_add);
     }
 
+    private void giaoDienDanhSach() {
+
+        listCty = new ArrayList<>();
+        congTyRecyclerAdapter = new CongTyRecyclerAdapter(this, listCty);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerViewCty.setLayoutManager(mLayoutManager);
+        recyclerViewCty.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewCty.setHasFixedSize(true);
+        recyclerViewCty.setAdapter(congTyRecyclerAdapter);
+        dbCongTy = new DBCongTy(this);
+    }
+
     private void setEvent() {
         img_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,17 +71,9 @@ public class DanhSachCty extends AppCompatActivity {
             }
         });
 
-        listCty = new ArrayList<>();
-        congTyRecyclerAdapter = new CongTyRecyclerAdapter(this, listCty);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewCty.setLayoutManager(mLayoutManager);
-        recyclerViewCty.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewCty.setHasFixedSize(true);
-        recyclerViewCty.setAdapter(congTyRecyclerAdapter);
-        dbCongTy = new DBCongTy(this);
+        giaoDienDanhSach();
         UpdateData();
     }
-
 
     @SuppressLint("StaticFieldLeak")
     public void UpdateData() {
@@ -77,7 +81,7 @@ public class DanhSachCty extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... params) {
                 listCty.clear();
-                listCty.addAll(dbCongTy.getAllCty());
+                listCty.addAll(dbCongTy.layDuLieuCongTy());
 
                 return null;
             }

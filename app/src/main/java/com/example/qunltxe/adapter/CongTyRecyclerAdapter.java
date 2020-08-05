@@ -58,7 +58,7 @@ public class CongTyRecyclerAdapter extends RecyclerView.Adapter<CongTyRecyclerAd
                         .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 DBCongTy dbCongTy = new DBCongTy(context);
-                                dbCongTy.deleteCongty(congTy);
+                                dbCongTy.xoaCongTy(congTy);
                                 Toast.makeText(context, "Xóa thành công !", Toast.LENGTH_SHORT).show();
                                 DanhSachCty danhSach = (DanhSachCty) context;
                                 danhSach.UpdateData();

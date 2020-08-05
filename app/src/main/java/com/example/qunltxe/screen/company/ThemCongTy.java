@@ -41,7 +41,14 @@ public class ThemCongTy extends AppCompatActivity {
         congTy = new CongTy();
     }
 
+    private void clearInput() {
+        ed_maloai.setText("");
+        ed_tenloai.setText("");
+        ed_xuatxu.setText("");
+    }
+
     private void setEvent() {
+
         btn_them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,11 +59,16 @@ public class ThemCongTy extends AppCompatActivity {
         btn_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ed_maloai.setText("");
-                ed_tenloai.setText("");
-                ed_xuatxu.setText("");
+                clearInput();
             }
         });
+    }
+
+    private void themCongTy() {
+        congTy.setMaLoai(ed_maloai.getText().toString().trim());
+        congTy.setTenLoai(ed_tenloai.getText().toString().trim());
+        congTy.setXuatXu(ed_xuatxu.getText().toString().trim());
+        dbCongTy.themCongTy(congTy);
     }
 
     private void checkInputAddCty() {
@@ -66,12 +78,8 @@ public class ThemCongTy extends AppCompatActivity {
             ed_tenloai.setError("Bạn chưa nhập tên loại");
         } else if (ed_xuatxu.getText().toString().isEmpty()) {
             ed_xuatxu.setError("Bạn chưa nhập xuất xứ");
-        } else if (!dbCongTy.checkCodeCongTy(ed_maloai.getText().toString().trim())) {
-            congTy.setMaLoai(ed_maloai.getText().toString().trim());
-            congTy.setTenLoai(ed_tenloai.getText().toString().trim());
-            congTy.setXuatXu(ed_xuatxu.getText().toString().trim());
-            dbCongTy.addCongty(congTy);
-
+        } else if (!dbCongTy.kiemTraMaCongTy(ed_maloai.getText().toString().trim())) {
+            themCongTy();
             AlertDialog.Builder alert = new AlertDialog.Builder(ThemCongTy.this);
             alert.setTitle("Thông báo");
             alert.setMessage("Thêm công ty thành công");
@@ -97,13 +105,12 @@ public class ThemCongTy extends AppCompatActivity {
         int menuID = item.getItemId();
         switch (menuID) {
             case R.id.menuItemHome:
-                home();
+                backHomePage();
                 break;
 
             case R.id.menuItemUpdate:
-                checkList();
+                danhSachCongTy();
                 break;
-
 
             default:
                 AlertDialog.Builder alert = new AlertDialog.Builder(ThemCongTy.this);
@@ -115,7 +122,7 @@ public class ThemCongTy extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void home() {
+    public void backHomePage() {
         new AlertDialog.Builder(this)
                 .setMessage("Về trang chính ?")
                 .setCancelable(false)
@@ -134,7 +141,7 @@ public class ThemCongTy extends AppCompatActivity {
                 }).show();
     }
 
-    public void checkList() {
+    public void danhSachCongTy() {
         Intent intent = new Intent(this, DanhSachCty.class);
         startActivity(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

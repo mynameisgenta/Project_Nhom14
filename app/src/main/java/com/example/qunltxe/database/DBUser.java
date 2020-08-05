@@ -47,7 +47,7 @@ public class DBUser extends SQLiteOpenHelper {
 
     }
 
-    public void addUser(User user) {
+    public void themTaiKhoan(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, user.getUsername());
@@ -57,7 +57,7 @@ public class DBUser extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateUser(User user) {
+    public void capnhatTaiKhoan(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, user.getUsername());
@@ -69,7 +69,7 @@ public class DBUser extends SQLiteOpenHelper {
         db.close();
     }
 
-    public ArrayList<User> getAllUser() {
+    public ArrayList<User> layDuLieuTaiKhoan() {
         ArrayList<User> data = new ArrayList<>();
         String sql = "SELECT * FROM user";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -88,7 +88,7 @@ public class DBUser extends SQLiteOpenHelper {
         return data;
     }
 
-    public User getUserByUserName(String user_name) {
+    public User kiemTraTaiKhoan(String user_name) {
         User user = new User();
         String sql = "SELECT * FROM user WHERE user_name ='" + user_name + "'";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -104,21 +104,21 @@ public class DBUser extends SQLiteOpenHelper {
         return user;
     }
 
-    public void deleteUser(User user) {
+    public void xoaTaiKhoan(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_USER, COLUMN_USER_NAME + " = ?",
                 new String[]{String.valueOf(user.getUsername())});
         db.close();
     }
 
-    public int getCountUser() {
+    public int demTaiKhoan() {
         String sql = "SELECT * from user";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
         return cursor.getCount();
     }
 
-    public boolean checkUserRegister(String username) {
+    public boolean kiemTraDangKy(String username) {
 
         String[] columns = {
                 COLUMN_USER_NAME
@@ -139,7 +139,7 @@ public class DBUser extends SQLiteOpenHelper {
         return cursorCount > 0;
     }
 
-    public boolean checkUserLogin(String username, String password) {
+    public boolean kiemtraDangNhap(String username, String password) {
 
         String[] columns = {
                 COLUMN_USER_NAME

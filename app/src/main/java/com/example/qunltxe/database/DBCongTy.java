@@ -43,7 +43,7 @@ public class DBCongTy extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addCongty(CongTy congTy) {
+    public void themCongTy(CongTy congTy) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_MA_LOAI, congTy.getMaLoai());
@@ -53,7 +53,7 @@ public class DBCongTy extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateCongty(CongTy congTy) {
+    public void capnhatCongTy(CongTy congTy) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_MA_LOAI, congTy.getMaLoai());
@@ -63,13 +63,13 @@ public class DBCongTy extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void deleteCongty(CongTy congTy) {
+    public void xoaCongTy(CongTy congTy) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CTY, COLUMN_MA_LOAI + "= ?", new String[]{String.valueOf(congTy.getMaLoai())});
         db.close();
     }
 
-    public ArrayList<CongTy> getAllCty() {
+    public ArrayList<CongTy> layDuLieuCongTy() {
         ArrayList<CongTy> data = new ArrayList<>();
         String sql = "SELECT * FROM Cty";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -91,7 +91,7 @@ public class DBCongTy extends SQLiteOpenHelper {
         return data;
     }
 
-    public List<String> getALLMaLoai() {
+    public List<String> layDuLieuMaLoai() {
         List<String> data = new ArrayList<String>();
         String selectQuery = "SELECT  maloai FROM " + TABLE_CTY;
 
@@ -109,7 +109,7 @@ public class DBCongTy extends SQLiteOpenHelper {
         return data;
     }
 
-    public ArrayList<CongTy> getAllCty(String maloai) {
+    public ArrayList<CongTy> layDuLieuCongTy(String maloai) {
         ArrayList<CongTy> data = new ArrayList<>();
         String sql = "SELECT * FROM Cty WHERE maloai = '" + maloai + "'";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -132,7 +132,7 @@ public class DBCongTy extends SQLiteOpenHelper {
         return data;
     }
 
-    public boolean checkCodeCongTy(String username) {
+    public boolean kiemTraMaCongTy(String username) {
 
         String[] columns = {
                 COLUMN_MA_LOAI

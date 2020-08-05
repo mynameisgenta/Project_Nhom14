@@ -62,7 +62,7 @@ public class XeRecyclerAdapter extends RecyclerView.Adapter<XeRecyclerAdapter.Xe
                         .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 DBXe dbXe = new DBXe(context);
-                                dbXe.deleteMoto(xe);
+                                dbXe.xoaXe(xe);
                                 Toast.makeText(context, "Xóa thành công !", Toast.LENGTH_SHORT).show();
                                 DanhSachXe danhSach = (DanhSachXe) context;
                                 danhSach.UpdateData();

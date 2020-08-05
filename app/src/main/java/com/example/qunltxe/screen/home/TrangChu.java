@@ -28,7 +28,6 @@ public class TrangChu extends AppCompatActivity {
         setEvent();
     }
 
-
     private void setEvent() {
 
         btnDonDatHang.setOnClickListener(new View.OnClickListener() {

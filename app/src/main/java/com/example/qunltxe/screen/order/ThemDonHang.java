@@ -59,14 +59,14 @@ public class ThemDonHang extends AppCompatActivity {
     }
 
     public void setEvent() {
-
+        ngayNhapDonHang();
+        thietLapTongTien();
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkInputAddDonHang();
             }
         });
-
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,8 +92,9 @@ public class ThemDonHang extends AppCompatActivity {
         btnAdd = findViewById(R.id.btnThem);
         btnClear = findViewById(R.id.btnClear);
         recyclerViewDonHang = findViewById(R.id.recyclerViewDonHang);
-        String date = new SimpleDateFormat("dd-MM-YYYY", Locale.getDefault()).format(new Date());
-        txtNgayDat.setText(date);
+    }
+
+    private void thietLapTongTien() {
         txtThanhTien.setText("0");
         txtSoLuongDatHang.addTextChangedListener(new TextWatcher() {
             @Override
@@ -120,9 +121,14 @@ public class ThemDonHang extends AppCompatActivity {
 
     }
 
+    private void ngayNhapDonHang() {
+        String date = new SimpleDateFormat("dd-MM-YYYY", Locale.getDefault()).format(new Date());
+        txtNgayDat.setText(date);
+    }
+
     public void loadSpinnerData() {
         dbXe = new DBXe(getApplicationContext());
-        List<Xe> data = dbXe.getInfoXe();
+        List<Xe> data = dbXe.layThongTinXe();
         spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, data);
         spinnerMaXe.setAdapter(spinnerAdapter);
         spinnerMaXe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -169,7 +175,18 @@ public class ThemDonHang extends AppCompatActivity {
     private void updateSoLuongXe() {
         DBXe dbXe = new DBXe(getApplicationContext());
         Xe xe = getXe();
-        dbXe.updateSoLuongXe(xe);
+        dbXe.laySoLuongXe(xe);
+    }
+
+    private void themDonHang() {
+        donHang.setMaDonHang(txtMaddh.getText().toString().trim());
+        donHang.setNgayDat(txtNgayDat.getText().toString().trim());
+        donHang.setMaXe(maXe);
+        donHang.setTenXe(txtTenXe.getText().toString().trim());
+        donHang.setSoLuongDat(Integer.parseInt(txtSoLuongDatHang.getText().toString().trim()));
+        donHang.setGiaXe(Integer.parseInt(txtDonGia.getText().toString().trim()));
+        donHang.setTongTien(Integer.parseInt(txtThanhTien.getText().toString().trim()));
+        dbDonDatHang.themDonHang(donHang);
     }
 
     private void checkInputAddDonHang() {
@@ -185,16 +202,9 @@ public class ThemDonHang extends AppCompatActivity {
             alert.setMessage("Số lượng xe hiện tại không đủ");
             alert.setPositiveButton("OK", null);
             alert.show();
-        } else if (!dbDonDatHang.checkCodeDonHang(txtMaddh.getText().toString().trim())) {
+        } else if (!dbDonDatHang.kiemTraMaDonHang(txtMaddh.getText().toString().trim())) {
             updateSoLuongXe();
-            donHang.setMaDonHang(txtMaddh.getText().toString().trim());
-            donHang.setNgayDat(txtNgayDat.getText().toString().trim());
-            donHang.setMaXe(maXe);
-            donHang.setTenXe(txtTenXe.getText().toString().trim());
-            donHang.setSoLuongDat(Integer.parseInt(txtSoLuongDatHang.getText().toString().trim()));
-            donHang.setGiaXe(Integer.parseInt(txtDonGia.getText().toString().trim()));
-            donHang.setTongTien(Integer.parseInt(txtThanhTien.getText().toString().trim()));
-            dbDonDatHang.addDonHang(donHang);
+            themDonHang();
             AlertDialog.Builder alert = new AlertDialog.Builder(ThemDonHang.this);
             alert.setTitle("Thông báo");
             alert.setMessage("Thêm đơn hàng thành công");
@@ -220,16 +230,16 @@ public class ThemDonHang extends AppCompatActivity {
         int menuID = item.getItemId();
         switch (menuID) {
             case R.id.menuItemHome:
-                backHome();
+                backHomePage();
                 break;
 
             case R.id.menuItemUpdate:
-                checkList();
+                danhSachDonHang();
                 break;
 
             default:
                 AlertDialog.Builder alert = new AlertDialog.Builder(ThemDonHang.this);
-                alert.setTitle("Thông báo");
+                alert.setTitle("Lỗi");
                 alert.setMessage("Có lỗi xảy ra !");
                 alert.setPositiveButton("OK", null);
                 alert.show();
@@ -237,7 +247,7 @@ public class ThemDonHang extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void backHome() {
+    public void backHomePage() {
         new AlertDialog.Builder(this)
                 .setMessage("Về trang chính ?")
                 .setCancelable(false)
@@ -255,11 +265,10 @@ public class ThemDonHang extends AppCompatActivity {
                 }).show();
     }
 
-    public void checkList() {
+    public void danhSachDonHang() {
         Intent intent = new Intent(this, DanhSachDonHang.class);
         startActivity(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         Toast.makeText(this, "Cập nhật thành công !", Toast.LENGTH_SHORT).show();
     }
-
 }

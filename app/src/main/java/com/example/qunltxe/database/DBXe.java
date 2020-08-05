@@ -50,7 +50,7 @@ public class DBXe extends SQLiteOpenHelper {
     }
 
 
-    public void addMoto(Xe xe) {
+    public void themXe(Xe xe) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_MA_XE, xe.getMaXe());
@@ -63,7 +63,7 @@ public class DBXe extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateMoto(Xe xe) {
+    public void capnhatXe(Xe xe) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_MA_XE, xe.getMaXe());
@@ -77,7 +77,7 @@ public class DBXe extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateSoLuongXe(Xe xe) {
+    public void laySoLuongXe(Xe xe) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_MA_XE, xe.getMaXe());
@@ -87,13 +87,13 @@ public class DBXe extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void deleteMoto(Xe xe) {
+    public void xoaXe(Xe xe) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_XE, COLUMN_MA_XE + " = ?", new String[]{String.valueOf(xe.getMaXe())});
         db.close();
     }
 
-    public ArrayList<Xe> getAllXe() {
+    public ArrayList<Xe> layDuLieuXe() {
         ArrayList<Xe> data = new ArrayList<>();
         String sql = "SELECT * FROM Xe";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -118,7 +118,7 @@ public class DBXe extends SQLiteOpenHelper {
         return data;
     }
 
-    public ArrayList<Xe> getAllXe(String maxe) {
+    public ArrayList<Xe> layDuLieuXe(String maxe) {
         ArrayList<Xe> data = new ArrayList<>();
         String sql = "SELECT * FROM Xe WHERE maxe ='" + maxe + "'";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -144,14 +144,14 @@ public class DBXe extends SQLiteOpenHelper {
         return data;
     }
 
-    public boolean checkCodeMoto(String username) {
+    public boolean kiemTraMaXe(String maxe) {
 
         String[] columns = {
                 COLUMN_MA_XE
         };
         SQLiteDatabase db = this.getReadableDatabase();
         String selection = COLUMN_MA_XE + " = ?";
-        String[] selectionArgs = {username};
+        String[] selectionArgs = {maxe};
         Cursor cursor = db.query(TABLE_XE,
                 columns,
                 selection,
@@ -165,7 +165,7 @@ public class DBXe extends SQLiteOpenHelper {
         return cursorCount > 0;
     }
 
-    public List<Xe> getInfoXe() {
+    public List<Xe> layThongTinXe() {
         List<Xe> data = new ArrayList<Xe>();
         String selectQuery = "SELECT * FROM " + TABLE_XE;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -184,7 +184,7 @@ public class DBXe extends SQLiteOpenHelper {
         return data;
     }
 
-    public Integer getSoLuongByMaXe(String maxe) {
+    public Integer laySoLuongTheoMaXe(String maxe) {
         Integer soLuongXe = 0;
         String sql = "SELECT soluong FROM Xe WHERE maxe ='" + maxe + "'";
         SQLiteDatabase db = this.getReadableDatabase();

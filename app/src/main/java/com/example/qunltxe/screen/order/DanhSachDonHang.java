@@ -50,6 +50,17 @@ public class DanhSachDonHang extends AppCompatActivity {
         img_add = findViewById(R.id.img_add);
     }
 
+    private void giaoDienDanhSach() {
+        listDonHang = new ArrayList<>();
+        donHangRecyclerAdapter = new DonHangRecyclerAdapter(this, listDonHang);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerViewDonHang.setLayoutManager(mLayoutManager);
+        recyclerViewDonHang.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewDonHang.setHasFixedSize(true);
+        recyclerViewDonHang.setAdapter(donHangRecyclerAdapter);
+        dbDonDatHang = new DBDonDatHang(this);
+    }
+
     private void setEvent() {
 
         img_add.setOnClickListener(new View.OnClickListener() {
@@ -61,14 +72,7 @@ public class DanhSachDonHang extends AppCompatActivity {
             }
         });
 
-        listDonHang = new ArrayList<>();
-        donHangRecyclerAdapter = new DonHangRecyclerAdapter(this, listDonHang);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerViewDonHang.setLayoutManager(mLayoutManager);
-        recyclerViewDonHang.setItemAnimator(new DefaultItemAnimator());
-        recyclerViewDonHang.setHasFixedSize(true);
-        recyclerViewDonHang.setAdapter(donHangRecyclerAdapter);
-        dbDonDatHang = new DBDonDatHang(this);
+        giaoDienDanhSach();
         UpdateData();
     }
 
@@ -78,7 +82,7 @@ public class DanhSachDonHang extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... params) {
                 listDonHang.clear();
-                listDonHang.addAll(dbDonDatHang.getALLDonHang());
+                listDonHang.addAll(dbDonDatHang.layDuLieuDonHang());
 
                 return null;
             }

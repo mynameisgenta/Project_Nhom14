@@ -41,24 +41,26 @@ public class ChinhSuaXe extends AppCompatActivity {
         txtDonGia.setText("");
     }
 
-    private void setEvent() {
+    private void layDuLieuXe() {
         String maxe = getIntent().getExtras().getString("maxe");
         DBXe dbXe = new DBXe(getApplicationContext());
-        dataXE = dbXe.getAllXe(maxe);
+        dataXE = dbXe.layDuLieuXe(maxe);
         txtMaxe.setText(dataXE.get(0).getMaXe());
         txtMaLoai.setText(dataXE.get(0).getMaLoai());
         txtTenXe.setText(dataXE.get(0).getTenXe());
         txtDungTich.setText(String.valueOf(dataXE.get(0).getDungTich()));
         txtSoLuong.setText(String.valueOf(dataXE.get(0).getSoLuong()));
         txtDonGia.setText(String.valueOf(dataXE.get(0).getDonGia()));
+    }
 
+    private void setEvent() {
+        layDuLieuXe();
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputUpdate();
+                capNhatDuLieu();
             }
         });
-
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,7 +96,13 @@ public class ChinhSuaXe extends AppCompatActivity {
         return xe;
     }
 
-    public void InputUpdate() {
+    private void capNhatXe() {
+        DBXe dbXe = new DBXe(getApplicationContext());
+        Xe xe = getXe();
+        dbXe.capnhatXe(xe);
+    }
+
+    public void capNhatDuLieu() {
         if (txtMaxe.getText().toString().isEmpty()) {
             txtMaxe.setError("Bạn chưa nhập mã xe");
         } else if (txtMaLoai.getText().toString().isEmpty()) {
@@ -108,9 +116,7 @@ public class ChinhSuaXe extends AppCompatActivity {
         } else if (txtDonGia.getText().toString().isEmpty()) {
             txtDonGia.setError("Bạn chưa nhập đơn giá");
         } else {
-            DBXe dbXe = new DBXe(getApplicationContext());
-            Xe xe = getXe();
-            dbXe.updateMoto(xe);
+            capNhatXe();
             AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSuaXe.this);
             alert.setTitle("Thông báo");
             alert.setMessage("Cập nhật thông tin xe thành công");
@@ -134,7 +140,7 @@ public class ChinhSuaXe extends AppCompatActivity {
                 break;
 
             case R.id.menuItemUpdate:
-                checkListMoto();
+                danhSachXe();
                 break;
 
 
@@ -167,7 +173,7 @@ public class ChinhSuaXe extends AppCompatActivity {
                 }).show();
     }
 
-    public void checkListMoto() {
+    public void danhSachXe() {
         Intent intent = new Intent(this, DanhSachXe.class);
         startActivity(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

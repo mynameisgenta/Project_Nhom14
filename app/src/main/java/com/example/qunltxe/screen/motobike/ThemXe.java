@@ -53,7 +53,7 @@ public class ThemXe extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkInputAddXe();
+                kiemTraDuLieuNhap();
             }
         });
 
@@ -87,14 +87,25 @@ public class ThemXe extends AppCompatActivity {
 
     private void loadSpinnerData() {
         dbCongTy = new DBCongTy(getApplicationContext());
-        List<String> data = dbCongTy.getALLMaLoai();
+        List<String> data = dbCongTy.layDuLieuMaLoai();
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         txtMaLoai.setAdapter(dataAdapter);
     }
 
-    private void checkInputAddXe() {
+    private void themXe() {
         String text_MaLoai = txtMaLoai.getSelectedItem().toString().trim();
+        xe.setMaLoai(text_MaLoai);
+        xe.setMaXe(txtMaxe.getText().toString().trim());
+        xe.setTenXe(txtTenXe.getText().toString().trim());
+        xe.setDungTich(Integer.parseInt(txtDungTich.getText().toString().trim()));
+        xe.setSoLuong(Integer.parseInt(txtSoLuong.getText().toString().trim()));
+        xe.setDonGia(Integer.parseInt(txtDonGia.getText().toString().trim()));
+        dbXe.themXe(xe);
+    }
+
+    private void kiemTraDuLieuNhap() {
+
         if (txtMaxe.getText().toString().isEmpty()) {
             txtMaxe.setError("Bạn chưa nhập mã xe");
         } else if (txtTenXe.getText().toString().isEmpty()) {
@@ -105,21 +116,13 @@ public class ThemXe extends AppCompatActivity {
             txtSoLuong.setError("Bạn chưa nhập số lượng");
         } else if (txtDonGia.getText().toString().isEmpty()) {
             txtDonGia.setError("Bạn chưa nhập đơn giá");
-        } else if (!dbXe.checkCodeMoto(txtMaxe.getText().toString().trim())) {
-            xe.setMaLoai(text_MaLoai);
-            xe.setMaXe(txtMaxe.getText().toString().trim());
-            xe.setTenXe(txtTenXe.getText().toString().trim());
-            xe.setDungTich(Integer.parseInt(txtDungTich.getText().toString().trim()));
-            xe.setSoLuong(Integer.parseInt(txtSoLuong.getText().toString().trim()));
-            xe.setDonGia(Integer.parseInt(txtDonGia.getText().toString().trim()));
-            dbXe.addMoto(xe);
-
+        } else if (!dbXe.kiemTraMaXe(txtMaxe.getText().toString().trim())) {
+            themXe();
             AlertDialog.Builder alert = new AlertDialog.Builder(ThemXe.this);
             alert.setTitle("Thông báo");
             alert.setMessage("Thêm xe thành công");
             alert.setPositiveButton("OK", null);
             alert.show();
-
         } else {
             AlertDialog.Builder alert = new AlertDialog.Builder(ThemXe.this);
             alert.setTitle("Thông báo");
@@ -140,11 +143,11 @@ public class ThemXe extends AppCompatActivity {
         int menuID = item.getItemId();
         switch (menuID) {
             case R.id.menuItemHome:
-                home();
+                backHomePage();
                 break;
 
             case R.id.menuItemUpdate:
-                checkList();
+                danhSachXe();
                 break;
 
 
@@ -158,7 +161,7 @@ public class ThemXe extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void home() {
+    public void backHomePage() {
         new AlertDialog.Builder(this)
                 .setMessage("Về trang chính ?")
                 .setCancelable(false)
@@ -177,7 +180,7 @@ public class ThemXe extends AppCompatActivity {
                 }).show();
     }
 
-    public void checkList() {
+    public void danhSachXe() {
         Intent intent = new Intent(this, DanhSachXe.class);
         startActivity(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

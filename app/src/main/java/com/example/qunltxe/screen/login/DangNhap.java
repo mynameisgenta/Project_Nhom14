@@ -16,7 +16,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.qunltxe.R;
-import com.example.qunltxe.database.DBCongTy;
 import com.example.qunltxe.database.DBUser;
 import com.example.qunltxe.screen.home.TrangChu;
 import com.example.qunltxe.screen.register.DangKy;
@@ -29,7 +28,6 @@ public class DangNhap extends AppCompatActivity {
     CheckBox cb_rememberme;
     TextView register;
     DBUser dbUser;
-    DBCongTy dbCongTy;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
@@ -51,10 +49,10 @@ public class DangNhap extends AppCompatActivity {
         setContentView(R.layout.login);
         setControl();
         setEvent();
-        CreateData();
+        khoiTaoData();
     }
 
-    private void CreateData() {
+    private void khoiTaoData() {
         dbUser = new DBUser(DangNhap.this);
     }
 
@@ -72,7 +70,7 @@ public class DangNhap extends AppCompatActivity {
         ib_finger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (dbUser.getCountUser() == 0) {
+                if (dbUser.demTaiKhoan() == 0) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(DangNhap.this);
                     alert.setTitle("Thông báo");
                     alert.setMessage("Bạn cần đăng nhập trước khi dùng vân tay");
@@ -86,19 +84,12 @@ public class DangNhap extends AppCompatActivity {
             }
         });
 
-        sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-
-        String name = sharedPreferences.getString("name", "");
-        String passwords = sharedPreferences.getString("passowrd", "");
-
-        login_password.setText(passwords);
-        login_username.setText(name);
-
+        ghiNhoDangNhap();
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkInputLogin();
+                kiemTraDangNhap();
+
                 if (cb_rememberme.isChecked()) {
                     editor.putString("name", login_username.getText().toString());
                     editor.putString("passowrd", login_password.getText().toString());
@@ -112,6 +103,15 @@ public class DangNhap extends AppCompatActivity {
         });
     }
 
+    private void ghiNhoDangNhap() {
+        sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        String name = sharedPreferences.getString("name", "");
+        String passwords = sharedPreferences.getString("passowrd", "");
+        login_password.setText(passwords);
+        login_username.setText(name);
+    }
+
     public void setControl() {
         login_username = findViewById(R.id.login_username);
         login_password = findViewById(R.id.login_password);
@@ -119,15 +119,15 @@ public class DangNhap extends AppCompatActivity {
         ib_finger = findViewById(R.id.ib_finger);
         cb_rememberme = findViewById(R.id.cb_rememberme);
         register = findViewById(R.id.go_register);
+
     }
 
-    private void checkInputLogin() {
+    private void kiemTraDangNhap() {
         if (login_username.getText().toString().isEmpty()) {
             login_username.setError("Bạn chưa nhập tài khoản");
         } else if (login_password.getText().toString().isEmpty()) {
             login_password.setError("Bạn chưa nhập mật khẩu");
-        } else if (dbUser.checkUserLogin(login_username.getText().toString().trim()
-                , login_password.getText().toString().trim())) {
+        } else if (dbUser.kiemtraDangNhap(login_username.getText().toString().trim(), login_password.getText().toString().trim())) {
             putPref("username", login_username.getText().toString().trim(), getApplicationContext());
             Intent accountsIntent = new Intent(DangNhap.this, TrangChu.class);
             startActivity(accountsIntent);

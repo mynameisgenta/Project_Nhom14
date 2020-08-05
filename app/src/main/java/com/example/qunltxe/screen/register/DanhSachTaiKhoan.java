@@ -64,7 +64,7 @@ public class DanhSachTaiKhoan extends AppCompatActivity {
             @Override
             protected Void doInBackground(Void... params) {
                 listUsers.clear();
-                listUsers.addAll(dbUser.getAllUser());
+                listUsers.addAll(dbUser.layDuLieuTaiKhoan());
 
                 return null;
             }

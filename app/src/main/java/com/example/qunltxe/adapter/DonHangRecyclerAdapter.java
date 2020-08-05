@@ -66,7 +66,7 @@ public class DonHangRecyclerAdapter extends RecyclerView.Adapter<DonHangRecycler
                                 maXe = donHang.getMaXe();
                                 soLuongXeDat = donHang.getSoLuongDat();
                                 DBDonDatHang dbDonDatHang = new DBDonDatHang(context);
-                                dbDonDatHang.deleteDonHang(donHang);
+                                dbDonDatHang.xoaDonHang(donHang);
                                 Toast.makeText(context, "Xóa thành công !", Toast.LENGTH_SHORT).show();
                                 updateSoLuongXe();
                                 DanhSachDonHang danhSach = (DanhSachDonHang) context;
@@ -96,7 +96,7 @@ public class DonHangRecyclerAdapter extends RecyclerView.Adapter<DonHangRecycler
 
     public int soLuongSauKhiXoa() {
         dbXe = new DBXe(context);
-        soLuongXeDB = dbXe.getSoLuongByMaXe(maXe);
+        soLuongXeDB = dbXe.laySoLuongTheoMaXe(maXe);
         Log.d("abcd", "soLuongSauKhiXoa: " + soLuongXeDB);
         int soLuong = 0;
         int soLuongDatHang = soLuongXeDat;
@@ -115,7 +115,7 @@ public class DonHangRecyclerAdapter extends RecyclerView.Adapter<DonHangRecycler
 
     public void updateSoLuongXe() {
         Xe xe = getXe();
-        dbXe.updateSoLuongXe(xe);
+        dbXe.laySoLuongXe(xe);
     }
 
     @Override

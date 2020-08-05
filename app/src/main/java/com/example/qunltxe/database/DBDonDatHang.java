@@ -50,7 +50,7 @@ public class DBDonDatHang extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addDonHang(DonHang donHang) {
+    public void themDonHang(DonHang donHang) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_MA_DON_HANG, donHang.getMaDonHang());
@@ -64,13 +64,13 @@ public class DBDonDatHang extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void deleteDonHang(DonHang donHang) {
+    public void xoaDonHang(DonHang donHang) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_DON_HANG, COLUMN_MA_DON_HANG + "= ?", new String[]{String.valueOf(donHang.getMaDonHang())});
         db.close();
     }
 
-    public ArrayList<DonHang> getALLDonHang() {
+    public ArrayList<DonHang> layDuLieuDonHang() {
         ArrayList<DonHang> data = new ArrayList<>();
         String sql = "SELECT * FROM DonHang";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -96,7 +96,7 @@ public class DBDonDatHang extends SQLiteOpenHelper {
         return data;
     }
 
-    public DonHang getDonHang(String madonhang) {
+    public DonHang layDuLieuDonHang(String madonhang) {
         DonHang donHang = new DonHang();
         String sql = "SELECT * FROM DonHang WHERE madonhang = '" + madonhang + "'";
         SQLiteDatabase db = this.getReadableDatabase();
@@ -119,7 +119,7 @@ public class DBDonDatHang extends SQLiteOpenHelper {
         return donHang;
     }
 
-    public boolean checkCodeDonHang(String madonhang) {
+    public boolean kiemTraMaDonHang(String madonhang) {
 
         String[] columns = {
                 COLUMN_MA_DON_HANG

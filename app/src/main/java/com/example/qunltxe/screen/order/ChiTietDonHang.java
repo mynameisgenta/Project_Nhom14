@@ -30,10 +30,10 @@ public class ChiTietDonHang extends AppCompatActivity {
         setEvent();
     }
 
-    private void setEvent() {
+    private void layDuLieuDonHang() {
         String madonhang = getIntent().getExtras().getString("madonhang");
         DBDonDatHang dbDonDatHang = new DBDonDatHang(getApplicationContext());
-        currentDonHang = dbDonDatHang.getDonHang(madonhang);
+        currentDonHang = dbDonDatHang.layDuLieuDonHang(madonhang);
         txtMaddh.setText(currentDonHang.getMaDonHang());
         txtNgayDat.setText(currentDonHang.getNgayDat());
         txtMaXe.setText(currentDonHang.getMaXe());
@@ -41,6 +41,10 @@ public class ChiTietDonHang extends AppCompatActivity {
         txtSoLuong.setText(String.valueOf(currentDonHang.getSoLuongDat()));
         txtDonGia.setText(String.valueOf(currentDonHang.getGiaXe()));
         txtThanhTien.setText(String.valueOf(currentDonHang.getTongTien()));
+    }
+
+    private void setEvent() {
+        layDuLieuDonHang();
     }
 
     private void setControl() {
@@ -68,7 +72,7 @@ public class ChiTietDonHang extends AppCompatActivity {
                 break;
 
             case R.id.menuItemUpdate:
-                checkListMoto();
+                danhSachDonHang();
                 break;
 
 
@@ -101,7 +105,7 @@ public class ChiTietDonHang extends AppCompatActivity {
                 }).show();
     }
 
-    public void checkListMoto() {
+    public void danhSachDonHang() {
         Intent intent = new Intent(this, DanhSachDonHang.class);
         startActivity(intent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

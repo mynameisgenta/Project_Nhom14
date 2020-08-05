@@ -105,7 +105,7 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
                 .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         DBUser dbUser = new DBUser(context);
-                        dbUser.deleteUser(user);
+                        dbUser.xoaTaiKhoan(user);
                         Toast.makeText(context, "Xóa thành công !", Toast.LENGTH_SHORT).show();
                         DanhSachTaiKhoan danhSach = (DanhSachTaiKhoan) context;
                         danhSach.UpdateData();

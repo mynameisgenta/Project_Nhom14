@@ -35,7 +35,6 @@ import javax.crypto.SecretKey;
 
 public class VanTay extends AppCompatActivity {
 
-    // Variable used for storing the key in the Android Keystore container
     private static final String KEY_NAME = "androidHive";
     private KeyStore keyStore;
     private Cipher cipher;
@@ -45,30 +44,22 @@ public class VanTay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finger_login);
-
-        // Initializing both Android Keyguard Manager and Fingerprint Manager
         KeyguardManager keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
         FingerprintManager fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
-
         textView = findViewById(R.id.errorText);
-        // Check whether the device has a Fingerprint sensor.
         if (!fingerprintManager.isHardwareDetected()) {
             textView.setText("Thiết bị của bạn không có cảm biến vân tay");
         } else {
-            // Checks whether fingerprint permission is set on manifest
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
                 textView.setText("Quyền xác thực vân tay chưa được kích hoạt");
             } else {
-                // Check whether at least one fingerprint is registered
                 if (!fingerprintManager.hasEnrolledFingerprints()) {
                     textView.setText("Đăng ký ít nhất một dấu vân tay trong cài đặt");
                 } else {
-                    // Checks whether lock screen security is enabled or not
                     if (!keyguardManager.isKeyguardSecure()) {
                         textView.setText("Bảo mật vân tay không được bật trong Cài đặt");
                     } else {
                         generateKey();
-
                         if (cipherInit()) {
                             FingerprintManager.CryptoObject cryptoObject = new FingerprintManager.CryptoObject(cipher);
                             FingerprintHandler helper = new FingerprintHandler(this);
