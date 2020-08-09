@@ -1,5 +1,4 @@
-# LDTT2_Nhom14 - TDC
-
+# LDTT2 - Nhóm 14
 - Tên ứng dụng : Quản lý đặt xe máy
 - Phiên bản : Beta v0.9.9
 - Người phát triển : 
