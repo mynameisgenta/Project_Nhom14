@@ -17,10 +17,14 @@
         android:roundIcon="@mipmap/ic_logolauncher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screen.order.ChiTietDonHang"></activity>
+        <activity android:name=".screen.info_app.Information"></activity>
+        <activity android:name=".screen.statistical.ThongKe" />
+        <activity android:name=".screen.order.ChiTietDonHang" />
         <activity android:name=".screen.order.DanhSachDonHang" />
         <activity android:name=".screen.order.ThemDonHang" />
-        <activity android:name=".adapter.DonHangRecyclerAdapter" />
+        <activity
+            android:name=".adapter.DonHangRecyclerAdapter"
+            tools:ignore="Instantiatable" />
         <activity android:name=".screen.register.ChinhSuaTaiKhoan" />
         <activity
             android:name=".adapter.UserRecyclerAdapter"

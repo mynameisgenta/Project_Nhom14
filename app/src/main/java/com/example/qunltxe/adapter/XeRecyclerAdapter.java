@@ -3,6 +3,8 @@ package com.example.qunltxe.adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,8 @@ import com.example.qunltxe.database.DBXe;
 import com.example.qunltxe.screen.motobike.ChinhSuaXe;
 import com.example.qunltxe.screen.motobike.DanhSachXe;
 
+import java.io.ByteArrayInputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +56,10 @@ public class XeRecyclerAdapter extends RecyclerView.Adapter<XeRecyclerAdapter.Xe
         holder.tvTenxe.setText(xe.getTenXe());
         holder.tvDungtich.setText(String.valueOf(xe.getDungTich()));
         holder.tvSoluong.setText(String.valueOf(xe.getSoLuong()));
-        holder.tvDongia.setText(String.valueOf(xe.getDonGia()));
+
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        holder.tvDongia.setText(formatter.format(xe.getDonGia()) + " VNĐ");
+
         holder.img_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +94,16 @@ public class XeRecyclerAdapter extends RecyclerView.Adapter<XeRecyclerAdapter.Xe
             }
         });
 
+        if (xe.getImage() != null) {
+            holder.img_PictureXe.setImageBitmap(convertByteArrayToBitmap(xe.getImage()));
+        }
+
+    }
+
+    public Bitmap convertByteArrayToBitmap(byte[] byteArray) {
+        ByteArrayInputStream arrayInputStream = new ByteArrayInputStream(byteArray);
+        Bitmap bitmap = BitmapFactory.decodeStream(arrayInputStream);
+        return bitmap;
     }
 
     @Override
@@ -128,6 +145,7 @@ public class XeRecyclerAdapter extends RecyclerView.Adapter<XeRecyclerAdapter.Xe
         TextView tvMaloai, tvMaxe, tvTenxe, tvDungtich, tvSoluong, tvDongia;
         ImageView img_delete;
         ImageView img_edit;
+        ImageView img_PictureXe;
 
         public XeViewHolder(View view) {
             super(view);
@@ -139,6 +157,7 @@ public class XeRecyclerAdapter extends RecyclerView.Adapter<XeRecyclerAdapter.Xe
             tvDongia = view.findViewById(R.id.tvDongia);
             img_delete = view.findViewById(R.id.img_delete);
             img_edit = view.findViewById(R.id.img_edit);
+            img_PictureXe = view.findViewById(R.id.imgXePicture);
         }
     }
 }

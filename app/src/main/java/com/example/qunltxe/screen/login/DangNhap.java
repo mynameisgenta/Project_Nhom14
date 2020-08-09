@@ -28,8 +28,10 @@ public class DangNhap extends AppCompatActivity {
     CheckBox cb_rememberme;
     TextView register;
     DBUser dbUser;
+    Context context;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    String username;
 
     public static void putPref(String key, String value, Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -89,7 +91,6 @@ public class DangNhap extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 kiemTraDangNhap();
-
                 if (cb_rememberme.isChecked()) {
                     editor.putString("name", login_username.getText().toString());
                     editor.putString("passowrd", login_password.getText().toString());

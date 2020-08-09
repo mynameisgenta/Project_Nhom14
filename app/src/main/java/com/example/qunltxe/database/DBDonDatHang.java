@@ -140,4 +140,29 @@ public class DBDonDatHang extends SQLiteOpenHelper {
         return cursorCount > 0;
     }
 
+
+    public ArrayList<String> queryXData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<String> xData = new ArrayList<String>();
+        String query = "SELECT " + COLUMN_NGAY_DAT + " FROM " + TABLE_DON_HANG + " GROUP BY " + COLUMN_NGAY_DAT;
+        Cursor cursor = db.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            xData.add(cursor.getString(0));
+        }
+        cursor.close();
+        return xData;
+    }
+
+    public ArrayList<String> queryYData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<String> yData = new ArrayList<String>();
+        String query = "SELECT SUM(" + COLUMN_SOLUONG_DAT + "), " + "COUNT(" + COLUMN_NGAY_DAT + ") FROM " + TABLE_DON_HANG;
+        Cursor cursor = db.rawQuery(query, null);
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+            yData.add(cursor.getString(0));
+        }
+        cursor.close();
+        return yData;
+    }
+
 }

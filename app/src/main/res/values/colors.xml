@@ -17,6 +17,7 @@
     <color name="whitecolor">#fff</color>
     <color name="fullwhite">#7A7A7A</color>
     <color name="yellow">#FFFF00</color>
-
+    <color name="cardColor">#fff</color>
+    <color name="textcardColor">#3f3f3f</color>
 
 </resources>

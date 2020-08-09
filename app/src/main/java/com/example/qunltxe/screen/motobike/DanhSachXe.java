@@ -3,7 +3,6 @@ package com.example.qunltxe.screen.motobike;
 import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -40,6 +38,7 @@ public class DanhSachXe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.danh_sach_xe);
+        getSupportActionBar().setTitle("Danh sách xe");
         setControl();
         setEvent();
     }
@@ -52,7 +51,7 @@ public class DanhSachXe extends AppCompatActivity {
     private void giaoDienDanhSach() {
         listXe = new ArrayList<>();
         xeRecyclerAdapter = new XeRecyclerAdapter(this, listXe);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewXe.setLayoutManager(mLayoutManager);
         recyclerViewXe.setItemAnimator(new DefaultItemAnimator());
         recyclerViewXe.setHasFixedSize(true);
@@ -134,21 +133,9 @@ public class DanhSachXe extends AppCompatActivity {
     }
 
     public void backHomePage() {
-        new AlertDialog.Builder(this)
-                .setMessage("Về trang chính ?")
-                .setCancelable(false)
-                .setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(DanhSachXe.this, TrangChu.class);
-                        startActivity(intent);
-                    }
-                })
-                .setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Perform Your Task Here--When No is pressed
-                        dialog.cancel();
-                    }
-                }).show();
+        Intent intent = new Intent(DanhSachXe.this, TrangChu.class);
+        startActivity(intent);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 
 }

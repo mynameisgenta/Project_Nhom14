@@ -1,6 +1,5 @@
 package com.example.qunltxe.screen.company;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +29,7 @@ public class ChinhSuaCongTy extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chinh_sua_cty);
+        getSupportActionBar().setTitle("Chỉnh sửa công ty");
         setControl();
         setEvent();
     }
@@ -119,22 +119,9 @@ public class ChinhSuaCongTy extends AppCompatActivity {
     }
 
     public void backHomePage() {
-        new AlertDialog.Builder(this)
-                .setMessage("Về trang chính ?")
-                .setCancelable(false)
-                .setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ChinhSuaCongTy.this, TrangChu.class);
-                        startActivity(intent);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    }
-                })
-                .setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Perform Your Task Here--When No is pressed
-                        dialog.cancel();
-                    }
-                }).show();
+        Intent intent = new Intent(ChinhSuaCongTy.this, TrangChu.class);
+        startActivity(intent);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 
     public void danhSachCongTy() {

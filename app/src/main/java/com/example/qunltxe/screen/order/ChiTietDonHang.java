@@ -1,6 +1,5 @@
 package com.example.qunltxe.screen.order;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +16,8 @@ import com.example.qunltxe.data_models.DonHang;
 import com.example.qunltxe.database.DBDonDatHang;
 import com.example.qunltxe.screen.home.TrangChu;
 
+import java.text.DecimalFormat;
+
 public class ChiTietDonHang extends AppCompatActivity {
 
     EditText txtMaddh, txtNgayDat, txtMaXe, txtTenXe, txtSoLuong, txtDonGia, txtThanhTien;
@@ -26,6 +27,7 @@ public class ChiTietDonHang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chi_tiet_don_hang);
+        getSupportActionBar().setTitle("Chi tiết đơn hàng");
         setControl();
         setEvent();
     }
@@ -39,8 +41,9 @@ public class ChiTietDonHang extends AppCompatActivity {
         txtMaXe.setText(currentDonHang.getMaXe());
         txtTenXe.setText(currentDonHang.getTenXe());
         txtSoLuong.setText(String.valueOf(currentDonHang.getSoLuongDat()));
-        txtDonGia.setText(String.valueOf(currentDonHang.getGiaXe()));
-        txtThanhTien.setText(String.valueOf(currentDonHang.getTongTien()));
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        txtDonGia.setText(formatter.format(currentDonHang.getGiaXe()) + " VNĐ");
+        txtThanhTien.setText(formatter.format(currentDonHang.getTongTien()) + " VNĐ");
     }
 
     private void setEvent() {
@@ -87,22 +90,9 @@ public class ChiTietDonHang extends AppCompatActivity {
     }
 
     public void backHomePage() {
-        new AlertDialog.Builder(this)
-                .setMessage("Về trang chính ?")
-                .setCancelable(false)
-                .setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ChiTietDonHang.this, TrangChu.class);
-                        startActivity(intent);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    }
-                })
-                .setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Perform Your Task Here--When No is pressed
-                        dialog.cancel();
-                    }
-                }).show();
+        Intent intent = new Intent(ChiTietDonHang.this, TrangChu.class);
+        startActivity(intent);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 
     public void danhSachDonHang() {

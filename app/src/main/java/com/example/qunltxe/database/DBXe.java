@@ -24,6 +24,7 @@ public class DBXe extends SQLiteOpenHelper {
     private static final String COLUMN_SOLUONG_XE = "soluong";
     private static final String COLUMN_MALOAI_XE = "maloai";
     private static final String COLUMN_DON_GIA = "dongia";
+    private static final String COLUMN_IMAGE = "image";
 
     public static final String CREATE_XE_TABLE = "CREATE TABLE "
             + TABLE_XE + "("
@@ -32,7 +33,8 @@ public class DBXe extends SQLiteOpenHelper {
             + COLUMN_TEN_XE + " TEXT,"
             + COLUMN_DUNGTICH_XE + " INTEGER,"
             + COLUMN_SOLUONG_XE + " INTEGER,"
-            + COLUMN_DON_GIA + " INTEGER" + ")";
+            + COLUMN_DON_GIA + " INTEGER,"
+            + COLUMN_IMAGE + " BLOB" + ")";
 
     public DBXe(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -59,6 +61,7 @@ public class DBXe extends SQLiteOpenHelper {
         values.put(COLUMN_DUNGTICH_XE, xe.getDungTich());
         values.put(COLUMN_SOLUONG_XE, xe.getSoLuong());
         values.put(COLUMN_DON_GIA, xe.getDonGia());
+        values.put(COLUMN_IMAGE, xe.getImage());
         db.insert("Xe", null, values);
         db.close();
     }
@@ -72,6 +75,7 @@ public class DBXe extends SQLiteOpenHelper {
         values.put(COLUMN_DUNGTICH_XE, xe.getDungTich());
         values.put(COLUMN_SOLUONG_XE, xe.getSoLuong());
         values.put(COLUMN_DON_GIA, xe.getDonGia());
+        values.put(COLUMN_IMAGE, xe.getImage());
         db.update(TABLE_XE, values, COLUMN_MA_XE + " = ?",
                 new String[]{String.valueOf(xe.getMaXe())});
         db.close();
@@ -110,6 +114,7 @@ public class DBXe extends SQLiteOpenHelper {
                 xe.setDungTich(cursor.getInt(3));
                 xe.setSoLuong(cursor.getInt(4));
                 xe.setDonGia(cursor.getInt(5));
+                xe.setImage(cursor.getBlob(6));
                 data.add(xe);
             }
             while (cursor.moveToNext());
@@ -135,6 +140,7 @@ public class DBXe extends SQLiteOpenHelper {
                 xe.setDungTich(cursor.getInt(3));
                 xe.setSoLuong(cursor.getInt(4));
                 xe.setDonGia(cursor.getInt(5));
+                xe.setImage(cursor.getBlob(6));
                 data.add(xe);
             }
             while (cursor.moveToNext());

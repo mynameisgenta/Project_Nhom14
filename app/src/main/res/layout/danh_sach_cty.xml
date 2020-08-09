@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     android:orientation="vertical"
     tools:context=".screen.company.DanhSachCty">
 
@@ -17,11 +18,12 @@
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 
-    <LinearLayout style="@style/lv_linear_btn">
+    <LinearLayout style="@style/linear_img_add">
 
         <ImageView
             android:id="@+id/img_add"
-            style="@style/lv_btn"></ImageView>
+            style="@style/img_add"></ImageView>
+
     </LinearLayout>
 
 </LinearLayout>

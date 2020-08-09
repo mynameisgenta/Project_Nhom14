@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     android:orientation="vertical"
     tools:context=".screen.motobike.ThemXe">
 
@@ -67,6 +69,18 @@
             <EditText
                 android:id="@+id/txtDonGia"
                 style="@style/edit_dongia" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/linear_upload_xe">
+
+            <TextView style="@style/txtUpload" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/uploadPictureXe"
+                style="@style/CircleImageViewXe"
+                app:civ_border_color="@color/blue"
+                app:civ_border_width="2dp" />
+
         </LinearLayout>
 
     </LinearLayout>

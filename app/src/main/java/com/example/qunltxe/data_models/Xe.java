@@ -7,6 +7,7 @@ public class Xe {
     private int DungTich;
     private int SoLuong;
     private int DonGia;
+    private byte[] image;
 
     public Xe(String maXe, String tenXe, int soLuong, int donGia) {
         MaXe = maXe;
@@ -65,5 +66,13 @@ public class Xe {
 
     public void setDonGia(int donGia) {
         DonGia = donGia;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

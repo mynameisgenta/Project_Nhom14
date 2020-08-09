@@ -1,6 +1,5 @@
 package com.example.qunltxe.screen.order;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -47,6 +46,7 @@ public class ThemDonHang extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.them_don_hang);
+        getSupportActionBar().setTitle("Thêm đơn hàng");
         setControl();
         setEvent();
         KhoiTaoData();
@@ -129,16 +129,17 @@ public class ThemDonHang extends AppCompatActivity {
     public void loadSpinnerData() {
         dbXe = new DBXe(getApplicationContext());
         List<Xe> data = dbXe.layThongTinXe();
-        spinnerAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_dropdown_item, data);
+        spinnerAdapter = new SpinnerAdapter(this, R.layout.spinner_maloai_xe, R.id.text_spinner, data);
         spinnerMaXe.setAdapter(spinnerAdapter);
         spinnerMaXe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Xe xe = spinnerAdapter.getItem(i);
+
+                maXe = xe.getMaXe();
                 txtTenXe.setText(xe.getTenXe());
                 txtDonGia.setText(String.valueOf(xe.getDonGia()));
                 txtsoLuongHienTai.setText(String.valueOf(xe.getSoLuong()));
-                maXe = xe.getMaXe();
             }
 
             @Override
@@ -248,21 +249,9 @@ public class ThemDonHang extends AppCompatActivity {
     }
 
     public void backHomePage() {
-        new AlertDialog.Builder(this)
-                .setMessage("Về trang chính ?")
-                .setCancelable(false)
-                .setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(ThemDonHang.this, TrangChu.class);
-                        startActivity(intent);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    }
-                })
-                .setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                }).show();
+        Intent intent = new Intent(ThemDonHang.this, TrangChu.class);
+        startActivity(intent);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     }
 
     public void danhSachDonHang() {

@@ -138,6 +138,12 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+    <style name="linear_upload_xe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
     <!-- Linear điền thông tin  -->
     <style name="linear_upload_img">
         <item name="android:layout_width">match_parent</item>
@@ -216,6 +222,15 @@
         <item name="android:text">@string/tv_dongia</item>
         <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="txtUpload">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/uploadXe</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">5dp</item>
     </style>
 
     <style name="txtUsername">
@@ -401,6 +416,7 @@
         <item name="android:background">@drawable/state_textbox_white</item>
         <item name="android:drawableLeft">@drawable/count_moto</item>
         <item name="android:drawablePadding">1dp</item>
+        <item name="android:maxLength">2</item>
     </style>
 
     <!-- EditText mã loại xe  -->
@@ -418,13 +434,13 @@
     <!-- EditText mã loại xe  -->
     <style name="edit_maloai_spinner">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_height">45dp</item>
         <item name="android:hint">@string/hint_maloai</item>
         <item name="android:imeOptions">actionNext</item>
-        <item name="android:background">@drawable/spinner_bg</item>
         <item name="android:inputType">text</item>
         <item name="android:drawableLeft">@drawable/type</item>
         <item name="android:drawablePadding">1dp</item>
+        <item name="android:background">@drawable/spinner_bg</item>
     </style>
 
     <style name="edit_dongia">
@@ -437,6 +453,7 @@
         <item name="android:drawableLeft">@drawable/price</item>
         <item name="android:drawablePadding">1dp</item>
         <item name="android:inputType">number</item>
+        <item name="android:maxLength">9</item>
     </style>
 
     <!-- EditText mã loại xe  -->
@@ -593,7 +610,7 @@
         <item name="android:text">@string/btn_quanlyxe</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
     </style>
 
     <!-- Button quản lý đơn đặt hàng -->
@@ -604,7 +621,7 @@
         <item name="android:text">@string/btn_dondathang</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">10dp</item>
+
     </style>
 
     <!-- Button quản lý user -->
@@ -615,7 +632,7 @@
         <item name="android:text">@string/btn_user</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
     </style>
 
     <!-- Button homepage thoát -->
@@ -626,7 +643,16 @@
         <item name="android:text">@string/btn_exit</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="btn_thongke">
+        <item name="android:layout_width">170dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/change_color_btn</item>
+        <item name="android:text">@string/btn_thongke</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Listview Xe -->
@@ -695,6 +721,21 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="xe_img_edit">
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/ic_edit</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="xe_img_delete">
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@drawable/ic_delete</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
     <!-- img edit  -->
     <style name="img_edit_donhang">
         <item name="android:layout_width">30dp</item>
@@ -729,8 +770,7 @@
         <item name="android:layout_width">230dp</item>
         <item name="android:layout_height">170dp</item>
         <item name="android:background">@drawable/logo_yellow</item>
-        <item name="android:layout_marginTop">-10dp</item>
-        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 
@@ -742,14 +782,6 @@
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_marginLeft">5dp</item>
-    </style>
-
-    <!-- Linear homepage  -->
-    <style name="linear_homepage">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:gravity">center</item>
     </style>
 
     <!-- textview mã xe  -->
@@ -1055,6 +1087,13 @@
         <item name="android:layout_marginTop">5dp</item>
     </style>
 
+    <style name="linear_anhxe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
     <style name="tv_title_maloai">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -1108,7 +1147,6 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:layout_weight">2</item>
         <item name="android:layout_gravity">center</item>
     </style>
 
@@ -1464,7 +1502,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">#03A9F4</item>
         <item name="android:text">@string/tv_maloai</item>
     </style>
@@ -1473,7 +1511,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:text">@string/tv_maloai</item>
     </style>
@@ -1482,7 +1520,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">#03A9F4</item>
         <item name="android:text">@string/tv_maxe</item>
     </style>
@@ -1491,7 +1529,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:text">@string/tv_maxe</item>
     </style>
@@ -1500,7 +1538,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">#03A9F4</item>
         <item name="android:text">@string/tv_tenxe</item>
     </style>
@@ -1509,7 +1547,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:text">@string/tv_tenxe</item>
     </style>
@@ -1518,7 +1556,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">#03A9F4</item>
         <item name="android:text">@string/tv_dungtich</item>
     </style>
@@ -1527,7 +1565,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:text">@string/tv_dungtich</item>
     </style>
@@ -1536,7 +1574,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">#03A9F4</item>
         <item name="android:text">@string/tv_soluong</item>
     </style>
@@ -1545,7 +1583,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:text">@string/tv_soluong</item>
     </style>
@@ -1554,7 +1592,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">2</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">#03A9F4</item>
         <item name="android:text">@string/tv_dongia</item>
     </style>
@@ -1563,7 +1601,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:text">@string/tv_dongia</item>
     </style>
@@ -1574,6 +1612,15 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginTop">30dp</item>
         <item name="android:background">@drawable/picture_img</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="CircleImageViewXe">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:background">@drawable/upload</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 
@@ -1616,6 +1663,7 @@
     <style name="linear_xe_recyclerview">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
         <item name="android:orientation">horizontal</item>
     </style>
 
@@ -1714,5 +1762,304 @@
         <item name="android:inputType">textPassword</item>
     </style>
 
+    <style name="danhsach_img_xe">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">180dp</item>
+        <item name="android:background">@drawable/background_moto</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
 
+    <style name="title_info">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">23dp</item>
+        <item name="android:textColor">@color/blue_macos</item>
+        <item name="android:text">@string/title_info</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="info1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/name_app</item>
+    </style>
+
+    <style name="info2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/ver_app</item>
+    </style>
+
+    <style name="info3">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/name_team</item>
+    </style>
+
+    <style name="info4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#03A9F4</item>
+        <item name="android:text">@string/contact</item>
+    </style>
+
+    <style name="content_info1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.9</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/name_app1</item>
+    </style>
+
+    <style name="content_info2">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.9</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/ver_app1</item>
+    </style>
+
+    <style name="content_info3">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.9</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/name_team1</item>
+    </style>
+
+    <style name="content_info4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.9</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:text">@string/contact1</item>
+    </style>
+
+    <!--Spinner mã loại cty-->
+    <style name="spin_img_cty">
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:src">@drawable/maloai_cty</item>
+    </style>
+
+    <style name="spin_tv_cty">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">Text Spinner</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!--Spinner mã loại xe-->
+    <style name="spin_img_xe">
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:src">@drawable/moto</item>
+    </style>
+
+    <style name="spin_tv_xe">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">Text Spinner</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!--HOMEPAGE UPDATE-->
+    <style name="view_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">230dp</item>
+        <item name="android:background">@drawable/ic_bg_topheader</item>
+    </style>
+
+    <style name="user_photo_homepage">
+        <item name="android:layout_width">71dp</item>
+        <item name="android:layout_height">71dp</item>
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:src">@drawable/home_avatarprofile</item>
+    </style>
+
+    <style name="fullname_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">18dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:text">Name</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="position_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">18dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:text">@string/text_chucvu</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="img_logout_homepage">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginStart">220dp</item>
+        <item name="android:layout_marginTop">35dp</item>
+        <item name="android:src">@drawable/home_logout</item>
+    </style>
+
+    <style name="gridlayout_homepage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginBottom">60dp</item>
+        <item name="android:layout_marginTop">110dp</item>
+        <item name="android:alignmentMode">alignMargins</item>
+        <item name="android:columnCount">2</item>
+        <item name="android:columnOrderPreserved">false</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:rowCount">3</item>
+    </style>
+
+    <style name="cardview_homepage">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:background">@color/cardColor</item>
+    </style>
+
+    <style name="linear_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal|center_vertical</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="img_cty_homepage">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/home_company</item>
+    </style>
+
+    <style name="tv_cty_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:text">@string/btn_quanlycty</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="img_xe_homepage">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/home_moto</item>
+    </style>
+
+    <style name="tv_xe_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:text">@string/btn_quanlyxe</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="img_bill_homepage">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/home_bill</item>
+    </style>
+
+    <style name="tv_bill_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:text">@string/btn_dondathang</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="img_user_homepage">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/home_user</item>
+    </style>
+
+    <style name="tv_user_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:text">@string/btn_user</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="img_statistics_homepage">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/home_statistics</item>
+    </style>
+
+    <style name="tv_statistics_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:text">@string/btn_thongke</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="img_inforapp_homepage">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:background">@drawable/home_infor</item>
+    </style>
+
+    <style name="tv_inforapp_homepage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:text">@string/btn_info</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
