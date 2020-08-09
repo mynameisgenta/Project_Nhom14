@@ -182,8 +182,15 @@ public class ThemXe extends AppCompatActivity {
     }
 
     private void kiemTraDuLieuNhap() {
-
-        if (txtMaxe.getText().toString().isEmpty()) {
+        if (txtMaLoai.getSelectedItem() == null) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(ThemXe.this);
+            alert.setTitle("Thông báo");
+            alert.setMessage("Bạn chưa thêm mã loại công ty");
+            alert.setPositiveButton("OK", null);
+            alert.show();
+        } else if (txtMaxe.getText().toString().isEmpty()) {
+            txtMaxe.setError("Bạn chưa nhập mã xe");
+        } else if (txtMaxe.getText().toString().isEmpty()) {
             txtMaxe.setError("Bạn chưa nhập mã xe");
         } else if (txtTenXe.getText().toString().isEmpty()) {
             txtTenXe.setError("Bạn chưa nhập tên xe");

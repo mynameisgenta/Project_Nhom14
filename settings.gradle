@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Project_Nhom14"
+rootProject.name = "Project_Default"

@@ -191,9 +191,19 @@ public class ThemDonHang extends AppCompatActivity {
     }
 
     private void checkInputAddDonHang() {
-        int SLHienTai = Integer.parseInt(txtsoLuongHienTai.getText().toString());
-        int SLDatHang = Integer.parseInt(txtSoLuongDatHang.getText().toString());
-        if (txtMaddh.getText().toString().isEmpty()) {
+        int SLHienTai = 0;
+        int SLDatHang = 0;
+        if (spinnerMaXe.getCount() == 0) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(ThemDonHang.this);
+            alert.setTitle("Thông báo");
+            alert.setMessage("Bạn chưa thêm mã xe nào");
+            alert.setPositiveButton("OK", null);
+            alert.show();
+        } else if (SLHienTai != 0) {
+            SLHienTai = Integer.parseInt(txtsoLuongHienTai.getText().toString());
+        } else if (SLDatHang != 0) {
+            SLDatHang = Integer.parseInt(txtSoLuongDatHang.getText().toString());
+        } else if (txtMaddh.getText().toString().isEmpty()) {
             txtMaddh.setError("Bạn chưa nhập mã đơn hàng");
         } else if (txtSoLuongDatHang.getText().toString().isEmpty()) {
             txtSoLuongDatHang.setError("Bạn chưa nhập số lượng đặt hàng");

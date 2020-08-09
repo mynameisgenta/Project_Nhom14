@@ -5,16 +5,13 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "com.example.project_nhom14"
+        applicationId "com.example.project_default"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
 
-    repositories {
-        maven { url 'https://jitpack.io' }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -23,7 +20,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -38,10 +41,7 @@ dependencies {
     implementation "androidx.biometric:biometric:1.0.1"
     implementation "com.google.android.material:material:1.1.0"
     implementation 'de.hdodenhof:circleimageview:2.1.0'
-    implementation "com.github.PhilJay:MPAndroidChart:v3.1.0"
     implementation "androidx.core:core-ktx:+"
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
-repositories {
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-    mavenCentral()
-}
+
