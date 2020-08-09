@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp">
+
+        <LinearLayout style="@style/linear_infor">
+
+            <LinearLayout style="@style/linear_tv">
+
+                <TextView style="@style/title_info" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_tv">
+
+                <TextView style="@style/info1" />
+
+                <TextView style="@style/content_info1" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_tv">
+
+                <TextView style="@style/info2" />
+
+                <TextView style="@style/content_info2" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_tv">
+
+                <TextView style="@style/info3" />
+
+                <TextView style="@style/content_info3" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/linear_tv">
+
+                <TextView style="@style/info4" />
+
+                <TextView style="@style/content_info4" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
