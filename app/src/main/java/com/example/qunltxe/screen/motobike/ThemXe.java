@@ -50,7 +50,7 @@ public class ThemXe extends AppCompatActivity {
 
     public static byte[] getBitmapAsByteArray(Bitmap bitmap) {
         ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArray);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArray);
         return byteArray.toByteArray();
     }
 
